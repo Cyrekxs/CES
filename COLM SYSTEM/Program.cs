@@ -1,4 +1,5 @@
 ﻿using COLM_SYSTEM.assessment;
+using COLM_SYSTEM.student_information;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace COLM_SYSTEM
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_assessment());
+            Application.Run(new frm_student_information_entry());
         }
     }
 }

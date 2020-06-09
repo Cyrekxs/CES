@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace COLM_SYSTEM.assessment
 {
-    public partial class frm_assessment : Form
+    public partial class frm_student_information : Form
     {
         string EducationLevel = "";
         string YearLevel = "";
@@ -71,7 +71,7 @@ namespace COLM_SYSTEM.assessment
             
         }
 
-        public frm_assessment()
+        public frm_student_information()
         {
             InitializeComponent();
             LoadFees();
