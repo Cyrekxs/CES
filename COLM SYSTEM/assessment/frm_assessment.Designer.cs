@@ -1,6 +1,6 @@
 ﻿namespace COLM_SYSTEM.assessment
 {
-    partial class frm_assessment
+    partial class frm_student_information
     {
         /// <summary>
         /// Required designer variable.
