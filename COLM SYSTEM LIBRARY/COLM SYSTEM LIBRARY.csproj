@@ -41,16 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="datasource\Address_DS.cs" />
     <Compile Include="datasource\AssessmentType_DS.cs" />
     <Compile Include="datasource\Discount_DS.cs" />
     <Compile Include="datasource\Fee_DS.cs" />
     <Compile Include="datasource\StudentInfo_DS.cs" />
     <Compile Include="helper\Connection.cs" />
     <Compile Include="helper\Enums.cs" />
+    <Compile Include="helper\Globals.cs" />
+    <Compile Include="model\Address.cs" />
     <Compile Include="model\AssessmentType.cs" />
     <Compile Include="model\AssessmentTypeItem.cs" />
     <Compile Include="model\Discount.cs" />
     <Compile Include="model\Fee.cs" />
+    <Compile Include="model\StudentGuardian.cs" />
     <Compile Include="model\StudentInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
