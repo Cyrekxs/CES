@@ -51,7 +51,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 48);
+            this.label1.Location = new System.Drawing.Point(12, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 17);
             this.label1.TabIndex = 0;
@@ -60,7 +60,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(300, 48);
+            this.label2.Location = new System.Drawing.Point(300, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 17);
             this.label2.TabIndex = 1;
@@ -68,28 +68,28 @@
             // 
             // txtMotherName
             // 
-            this.txtMotherName.Location = new System.Drawing.Point(15, 68);
+            this.txtMotherName.Location = new System.Drawing.Point(15, 42);
             this.txtMotherName.Name = "txtMotherName";
             this.txtMotherName.Size = new System.Drawing.Size(282, 24);
             this.txtMotherName.TabIndex = 2;
             // 
             // txtMotherMobile
             // 
-            this.txtMotherMobile.Location = new System.Drawing.Point(303, 68);
+            this.txtMotherMobile.Location = new System.Drawing.Point(303, 42);
             this.txtMotherMobile.Name = "txtMotherMobile";
             this.txtMotherMobile.Size = new System.Drawing.Size(163, 24);
             this.txtMotherMobile.TabIndex = 3;
             // 
             // txtFatherMobile
             // 
-            this.txtFatherMobile.Location = new System.Drawing.Point(303, 115);
+            this.txtFatherMobile.Location = new System.Drawing.Point(303, 89);
             this.txtFatherMobile.Name = "txtFatherMobile";
             this.txtFatherMobile.Size = new System.Drawing.Size(163, 24);
             this.txtFatherMobile.TabIndex = 7;
             // 
             // txtFatherName
             // 
-            this.txtFatherName.Location = new System.Drawing.Point(15, 115);
+            this.txtFatherName.Location = new System.Drawing.Point(15, 89);
             this.txtFatherName.Name = "txtFatherName";
             this.txtFatherName.Size = new System.Drawing.Size(282, 24);
             this.txtFatherName.TabIndex = 6;
@@ -97,7 +97,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(300, 95);
+            this.label3.Location = new System.Drawing.Point(300, 69);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 17);
             this.label3.TabIndex = 5;
@@ -106,7 +106,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 95);
+            this.label4.Location = new System.Drawing.Point(12, 69);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 17);
             this.label4.TabIndex = 4;
@@ -114,14 +114,14 @@
             // 
             // txtGuardianMobile
             // 
-            this.txtGuardianMobile.Location = new System.Drawing.Point(303, 207);
+            this.txtGuardianMobile.Location = new System.Drawing.Point(303, 181);
             this.txtGuardianMobile.Name = "txtGuardianMobile";
             this.txtGuardianMobile.Size = new System.Drawing.Size(163, 24);
             this.txtGuardianMobile.TabIndex = 11;
             // 
             // txtGuardianName
             // 
-            this.txtGuardianName.Location = new System.Drawing.Point(15, 207);
+            this.txtGuardianName.Location = new System.Drawing.Point(15, 181);
             this.txtGuardianName.Name = "txtGuardianName";
             this.txtGuardianName.Size = new System.Drawing.Size(282, 24);
             this.txtGuardianName.TabIndex = 10;
@@ -129,7 +129,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(300, 187);
+            this.label5.Location = new System.Drawing.Point(300, 161);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 17);
             this.label5.TabIndex = 9;
@@ -138,7 +138,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 187);
+            this.label6.Location = new System.Drawing.Point(12, 161);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(98, 17);
             this.label6.TabIndex = 8;
@@ -147,7 +147,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(469, 187);
+            this.label7.Location = new System.Drawing.Point(469, 161);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(61, 17);
             this.label7.TabIndex = 12;
@@ -155,7 +155,7 @@
             // 
             // txtGuardianRelation
             // 
-            this.txtGuardianRelation.Location = new System.Drawing.Point(472, 207);
+            this.txtGuardianRelation.Location = new System.Drawing.Point(472, 181);
             this.txtGuardianRelation.Name = "txtGuardianRelation";
             this.txtGuardianRelation.Size = new System.Drawing.Size(123, 24);
             this.txtGuardianRelation.TabIndex = 13;
@@ -165,7 +165,7 @@
             // 
             this.rbMotherGuardian.AutoSize = true;
             this.rbMotherGuardian.Font = new System.Drawing.Font("Source Sans Pro SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbMotherGuardian.Location = new System.Drawing.Point(472, 69);
+            this.rbMotherGuardian.Location = new System.Drawing.Point(472, 43);
             this.rbMotherGuardian.Name = "rbMotherGuardian";
             this.rbMotherGuardian.Size = new System.Drawing.Size(127, 21);
             this.rbMotherGuardian.TabIndex = 14;
@@ -178,7 +178,7 @@
             // 
             this.rbFatherGuardian.AutoSize = true;
             this.rbFatherGuardian.Font = new System.Drawing.Font("Source Sans Pro SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbFatherGuardian.Location = new System.Drawing.Point(472, 116);
+            this.rbFatherGuardian.Location = new System.Drawing.Point(472, 90);
             this.rbFatherGuardian.Name = "rbFatherGuardian";
             this.rbFatherGuardian.Size = new System.Drawing.Size(127, 21);
             this.rbFatherGuardian.TabIndex = 15;
@@ -190,7 +190,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Source Sans Pro SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(409, 260);
+            this.button1.Location = new System.Drawing.Point(409, 242);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(186, 36);
             this.button1.TabIndex = 16;
@@ -202,7 +202,7 @@
             // 
             this.rbOtherGuardian.AutoSize = true;
             this.rbOtherGuardian.Font = new System.Drawing.Font("Source Sans Pro SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbOtherGuardian.Location = new System.Drawing.Point(15, 163);
+            this.rbOtherGuardian.Location = new System.Drawing.Point(15, 137);
             this.rbOtherGuardian.Name = "rbOtherGuardian";
             this.rbOtherGuardian.Size = new System.Drawing.Size(162, 21);
             this.rbOtherGuardian.TabIndex = 17;
@@ -215,7 +215,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(619, 322);
+            this.ClientSize = new System.Drawing.Size(619, 296);
             this.Controls.Add(this.rbOtherGuardian);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.rbFatherGuardian);
