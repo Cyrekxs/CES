@@ -25,6 +25,8 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string MobileNo { get; set; }
         public string EmailAddress { get; set; }
 
+        public string StudentName { get { return string.Concat(Lastname, " ", Firstname); } }
+
         public static List<StudentInfo> GetStudents()
         {
             return StudentInfo_DS.GetStudents();
