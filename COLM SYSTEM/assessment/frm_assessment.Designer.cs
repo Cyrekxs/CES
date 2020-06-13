@@ -837,7 +837,7 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // frm_assessment
+            // frm_student_information
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -858,7 +858,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frm_assessment";
+            this.Name = "frm_student_information";
             this.Text = "STUDENT ASSESSMENT";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

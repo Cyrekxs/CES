@@ -15,5 +15,11 @@ namespace COLM_SYSTEM_LIBRARY.helper
             OFee,
             AFee
         }
+
+        public enum SavingOptions
+        {
+            INSERT,
+            UPDATE
+        }
     }
 }

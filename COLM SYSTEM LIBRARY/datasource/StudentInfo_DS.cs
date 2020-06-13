@@ -32,6 +32,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 ExtensionName = Convert.ToString(reader["ExtensionName"]),
                                 BirthDate = Convert.ToDateTime(reader["BirthDate"]),
                                 BirthPlace = Convert.ToString(reader["BirthPlace"]),
+                                Gender = Convert.ToString(reader["Gender"]),
                                 Street = Convert.ToString(reader["Street"]),
                                 Barangay = Convert.ToString(reader["Barangay"]),
                                 City = Convert.ToString(reader["City"]),
@@ -47,12 +48,51 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return students;
         }
 
-        public static bool InsertStudent(StudentInfo model)
+        public static StudentInfo GetStudent(int StudentID)
+        {
+            StudentInfo student = new StudentInfo();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_student_information WHERE StudentID = @StudentID ORDER BY Lastname,Firstname ASC", conn))
+                {
+                    comm.Parameters.AddWithValue("@StudentID", StudentID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            student = new StudentInfo()
+                            {
+                                StudentID = Convert.ToInt32(reader["StudentID"]),
+                                LRN = Convert.ToString(reader["LRN"]),
+                                Lastname = Convert.ToString(reader["Lastname"]),
+                                Firstname = Convert.ToString(reader["Firstname"]),
+                                Middlename = Convert.ToString(reader["Middlename"]),
+                                ExtensionName = Convert.ToString(reader["ExtensionName"]),
+                                BirthDate = Convert.ToDateTime(reader["BirthDate"]),
+                                BirthPlace = Convert.ToString(reader["BirthPlace"]),
+                                Gender = Convert.ToString(reader["Gender"]),
+                                Street = Convert.ToString(reader["Street"]),
+                                Barangay = Convert.ToString(reader["Barangay"]),
+                                City = Convert.ToString(reader["City"]),
+                                Province = Convert.ToString(reader["Province"]),
+                                EmailAddress = Convert.ToString(reader["EmailAddress"]),
+                                MobileNo = Convert.ToString(reader["MobileNo"])
+                            };
+                        }
+                    }
+                }
+            }
+            return student;
+        }
+
+
+        public static bool InsertStudentInfo(StudentInfo model)
         {
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("INSERT INTO tbl_student_information VALUES (@LRN,@Lastname,@Firstname,@Middlename,@ExtensionName,@BirthDate,@BirthPlace,@Street,@Barangay,@City,@Province,@MobileNo,@EmailAddress,GETDATE())", conn))
+                using (SqlCommand comm = new SqlCommand("INSERT INTO tbl_student_information VALUES (@LRN,@Lastname,@Firstname,@Middlename,@ExtensionName,@BirthDate,@BirthPlace,@Gender,@Street,@Barangay,@City,@Province,@MobileNo,@EmailAddress,GETDATE())", conn))
                 {
                     comm.Parameters.AddWithValue("@LRN", model.LRN);
                     comm.Parameters.AddWithValue("@Lastname", model.Lastname);
@@ -61,6 +101,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                     comm.Parameters.AddWithValue("@ExtensionName", model.ExtensionName);
                     comm.Parameters.AddWithValue("@BirthDate", model.BirthDate);
                     comm.Parameters.AddWithValue("@BirthPlace", model.BirthPlace);
+                    comm.Parameters.AddWithValue("@Gender", model.Gender);
                     comm.Parameters.AddWithValue("@Street", model.Street);
                     comm.Parameters.AddWithValue("@Barangay", model.Barangay);
                     comm.Parameters.AddWithValue("@City", model.City);
@@ -75,12 +116,12 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
         }
 
-        public static bool UpdateStudent(StudentInfo model)
+        public static bool UpdateStudentInfo(StudentInfo model)
         {
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("UPDATE tbl_student_information SET LRN =  @LRN, Lastname = @Lastname, Firstname = @Firstname, Middlename = @Middlename, Extensionname = @ExtensionName, BirthDate = @BirthDate, BirthDate = @BirthPlace, Street = @Street, Barangay = @Barangay, City = @City, Province = @Province, MobileNo = @MobileNo, EmailAddress = @EmailAddress WHERE StudentID = @StudentID", conn))
+                using (SqlCommand comm = new SqlCommand("UPDATE tbl_student_information SET LRN =  @LRN, Lastname = @Lastname, Firstname = @Firstname, Middlename = @Middlename, Extensionname = @ExtensionName, BirthDate = @BirthDate, BirthPlace = @BirthPlace, Gender = @Gender, Street = @Street, Barangay = @Barangay, City = @City, Province = @Province, MobileNo = @MobileNo, EmailAddress = @EmailAddress WHERE StudentID = @StudentID", conn))
                 {
                     comm.Parameters.AddWithValue("@StudentID", model.StudentID);
                     comm.Parameters.AddWithValue("@LRN", model.LRN);
@@ -90,6 +131,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                     comm.Parameters.AddWithValue("@ExtensionName", model.ExtensionName);
                     comm.Parameters.AddWithValue("@BirthDate", model.BirthDate);
                     comm.Parameters.AddWithValue("@BirthPlace", model.BirthPlace);
+                    comm.Parameters.AddWithValue("@Gender", model.Gender);
                     comm.Parameters.AddWithValue("@Street", model.Street);
                     comm.Parameters.AddWithValue("@Barangay", model.Barangay);
                     comm.Parameters.AddWithValue("@City", model.City);
@@ -103,5 +145,114 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 }
             }
         }
+
+        public static List<StudentGuardian> GetGuardians()
+        {
+            List<StudentGuardian> guardians = new List<StudentGuardian>();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_student_information_guardian ORDER BY StudentID ASC", conn))
+                {
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            StudentGuardian guardian = new StudentGuardian()
+                            {
+                                StudentGuardianID = Convert.ToInt32(reader["StudentGuardianID"]),
+                                MotherName = Convert.ToString(reader["MotherName"]),
+                                MotherMobile = Convert.ToString(reader["MotherMobile"]),
+                                FatherName = Convert.ToString(reader["FatherName"]),
+                                FatherMobile = Convert.ToString(reader["FatherMobile"]),
+                                GuardianName = Convert.ToString(reader["GuardianName"]),
+                                GuardianMobile = Convert.ToString(reader["GuardianMobile"]),
+                                GuardianRelation = Convert.ToString(reader["GuardianRelation"])
+                            };
+                            guardians.Add(guardian);
+                        }
+                    }
+                }
+            }
+            return guardians;
+        }
+        public static StudentGuardian GetStudentGuardian(int StudentID)
+        {
+            StudentGuardian guardian = new StudentGuardian();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_student_information_guardian WHERE StudentID = @StudentID", conn))
+                {
+                    comm.Parameters.AddWithValue("@StudentID", StudentID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            guardian = new StudentGuardian()
+                            {
+                                StudentGuardianID = Convert.ToInt32(reader["StudentGuardianID"]),
+                                MotherName = Convert.ToString(reader["MotherName"]),
+                                MotherMobile = Convert.ToString(reader["MotherMobile"]),
+                                FatherName = Convert.ToString(reader["FatherName"]),
+                                FatherMobile = Convert.ToString(reader["FatherMobile"]),
+                                GuardianName = Convert.ToString(reader["GuardianName"]),
+                                GuardianMobile = Convert.ToString(reader["GuardianMobile"]),
+                                GuardianRelation = Convert.ToString(reader["GuardianRelation"])
+                            };
+                        }
+                    }
+                }
+            }
+            return guardian;
+        }
+
+        public static bool InsertStudentGuardian(StudentGuardian model)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("INSERT INTO tbl_student_information_guardian VALUES (@StudentID,@MotherName,@MotherMobile,@FatherName,@FatherMobile,@GuardianName,@GuardianMobile,@GuardianRelation)", conn))
+                {
+                    comm.Parameters.AddWithValue("@StudentID", model.StudentID);
+                    comm.Parameters.AddWithValue("@MotherName", model.MotherName);
+                    comm.Parameters.AddWithValue("@MotherMobile", model.MotherMobile);
+                    comm.Parameters.AddWithValue("@FatherName", model.FatherName);
+                    comm.Parameters.AddWithValue("@FatherMobile", model.FatherMobile);
+                    comm.Parameters.AddWithValue("@GuardianName", model.GuardianName);
+                    comm.Parameters.AddWithValue("@GuardianMobile", model.GuardianMobile);
+                    comm.Parameters.AddWithValue("@GuardianRelation", model.GuardianRelation);
+                    if (comm.ExecuteNonQuery() > 0)
+                        return true;
+                    else
+                        return false;
+                }
+            }
+        }
+
+        public static bool UpdateStudentGuardian(StudentGuardian model)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("UPDATE tbl_student_information_guardian SET MotherName = @MotherName, MotherMobile = @MotherMobile, FatherName = @FatherName, FatherMobile = @FatherMobile, GuardianName = @GuardianName, GuardianMobile = @GuardianMobile, GuardianRelation = @GuardianRelation WHERE StudentGuardianID = @StudentGuardianID", conn))
+                {
+                    comm.Parameters.AddWithValue("@StudentGuardianID", model.StudentGuardianID);
+
+                    comm.Parameters.AddWithValue("@MotherName", model.MotherName);
+                    comm.Parameters.AddWithValue("@MotherMobile", model.MotherMobile);
+                    comm.Parameters.AddWithValue("@FatherName", model.FatherName);
+                    comm.Parameters.AddWithValue("@FatherMobile", model.FatherMobile);
+                    comm.Parameters.AddWithValue("@GuardianName", model.GuardianName);
+                    comm.Parameters.AddWithValue("@GuardianMobile", model.GuardianMobile);
+                    comm.Parameters.AddWithValue("@GuardianRelation", model.GuardianRelation);
+                    if (comm.ExecuteNonQuery() > 0)
+                        return true;
+                    else
+                        return false;
+                }
+            }
+        }
+
     }
 }
