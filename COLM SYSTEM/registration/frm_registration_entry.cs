@@ -2,15 +2,27 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using static COLM_SYSTEM_LIBRARY.helper.Enums;
+
 namespace COLM_SYSTEM.registration
 {
     public partial class frm_registration_entry : Form
     {
+        SavingOptions saving = new SavingOptions();
         List<YearLevel> _YearLevels = YearLevel.GetYearLevels();
         StudentInfo _StudentInfo = new StudentInfo();
+        StudentRegistrationInfo model = new StudentRegistrationInfo();
+
+
         public frm_registration_entry()
         {
             InitializeComponent();
+            saving = SavingOptions.INSERT;
+        }
+
+        public frm_registration_entry(int RegisteredStudentID)
+        {            
+            saving = SavingOptions.UPDATE;
         }
 
         private void LoadYearLevels()

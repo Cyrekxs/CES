@@ -25,5 +25,10 @@ namespace COLM_SYSTEM_LIBRARY.model
         {
             return StudentRegistration_DS.UpdateStudentRegistration(student);
         }
+
+        public static StudentRegistrationInfo GetStudentRegistrationInfo(int RegisteredStudentID)
+        {
+            return StudentRegistration_DS.GetStudentRegistrationInfo(RegisteredStudentID);
+        }
     }
 }

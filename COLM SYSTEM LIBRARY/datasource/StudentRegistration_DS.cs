@@ -13,7 +13,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_registered_students()", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_RegisteredStudents()", conn))
                 {
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
@@ -23,10 +23,15 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                             {
                                 RegisteredStudentID = Convert.ToInt32(reader["RegisteredStudentID"]),
                                 StudentID = Convert.ToInt32(reader["StudentID"]),
+                                LRN = Convert.ToString(reader["LRN"]),
                                 StudentName = Convert.ToString(reader["StudentName"]),
                                 Gender = Convert.ToString(reader["Gender"]),
                                 MobileNo = Convert.ToString(reader["MobileNo"]),
                                 YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
+                                EducationLevel = Convert.ToString(reader["EducationLevel"]),
+                                YearLevel = Convert.ToString(reader["YearLevel"]),
+                                SectionID = Convert.ToInt32(reader["SectionID"]),
+                                Section = Convert.ToString(reader["Section"]),
                                 SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
                                 DateRegistered = Convert.ToDateTime(reader["DateRegistered"])
                             };
@@ -36,6 +41,35 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 }
             }
             return registeredStudents;
+        }
+
+        public static StudentRegistrationInfo GetStudentRegistrationInfo(int RegisteredStudentID)
+        {
+            StudentRegistrationInfo registrationInfo = new StudentRegistrationInfo();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_student_registered WHERE RegisteredStudentID = @RegisteredStudentID", conn))
+                {
+                    comm.Parameters.AddWithValue("@RegisteredStudentID", RegisteredStudentID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            registrationInfo = new StudentRegistrationInfo()
+                            {
+                                RegisteredStudentID = Convert.ToInt32(reader["RegisteredStudentID"]),
+                                StudentID = Convert.ToInt32(reader["StudentID"]),
+                                YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
+                                SectionID = Convert.ToInt32(reader["SectionID"]),
+                                SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
+                                DateRegistered = Convert.ToDateTime(reader["DateRegisterd"])
+                            };
+                        }
+                    }
+                }
+            }
+            return registrationInfo;
         }
 
         public static bool RegisterStudent(StudentRegistrationInfo model)

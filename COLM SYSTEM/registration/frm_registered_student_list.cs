@@ -17,6 +17,35 @@ namespace COLM_SYSTEM.registration
         public frm_registered_student_list()
         {
             InitializeComponent();
+            LoadRegisteredStudents();
+        }
+
+        private void LoadRegisteredStudents()
+        {
+            foreach (var item in _RegisteredStudents)
+            {
+                dataGridView1.Rows.Add(
+                    item.RegisteredStudentID,
+                    item.StudentID, 
+                    item.LRN, 
+                    item.StudentName, 
+                    item.Gender, 
+                    item.MobileNo, 
+                    item.YearLevelID, 
+                    item.EducationLevel, 
+                    item.YearLevel, 
+                    item.SectionID, 
+                    item.Section);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (frm_registration_entry frm = new frm_registration_entry())
+            {
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+            }
         }
     }
 }

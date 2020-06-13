@@ -35,21 +35,25 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.clmRegisteredStudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmStudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmYearLevelID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSectionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.clmAssessment = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtRecords
             // 
-            this.txtRecords.Location = new System.Drawing.Point(892, 548);
+            this.txtRecords.Location = new System.Drawing.Point(941, 548);
             this.txtRecords.Name = "txtRecords";
             this.txtRecords.ReadOnly = true;
             this.txtRecords.Size = new System.Drawing.Size(75, 24);
@@ -59,7 +63,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(826, 551);
+            this.label2.Location = new System.Drawing.Point(875, 551);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 17);
             this.label2.TabIndex = 12;
@@ -73,6 +77,7 @@
             this.button2.TabIndex = 11;
             this.button2.Text = "NEW REGISTRATION";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // dataGridView1
             // 
@@ -81,25 +86,29 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmRegisteredStudentID,
             this.clmStudentID,
             this.Column2,
             this.Column3,
             this.Column5,
             this.Column6,
+            this.clmYearLevelID,
             this.Column1,
             this.Column7,
+            this.clmSectionID,
             this.Column4,
+            this.Column8,
             this.clmAssessment});
             this.dataGridView1.Location = new System.Drawing.Point(15, 47);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(952, 491);
+            this.dataGridView1.Size = new System.Drawing.Size(1001, 491);
             this.dataGridView1.TabIndex = 10;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(892, 18);
+            this.button1.Location = new System.Drawing.Point(941, 17);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 9;
@@ -110,7 +119,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(124, 17);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(762, 24);
+            this.textBox1.Size = new System.Drawing.Size(811, 24);
             this.textBox1.TabIndex = 8;
             // 
             // label1
@@ -121,6 +130,13 @@
             this.label1.Size = new System.Drawing.Size(106, 17);
             this.label1.TabIndex = 7;
             this.label1.Text = "SEARCH STUDENT";
+            // 
+            // clmRegisteredStudentID
+            // 
+            this.clmRegisteredStudentID.HeaderText = "RegisteredStudentID";
+            this.clmRegisteredStudentID.Name = "clmRegisteredStudentID";
+            this.clmRegisteredStudentID.ReadOnly = true;
+            this.clmRegisteredStudentID.Visible = false;
             // 
             // clmStudentID
             // 
@@ -154,6 +170,13 @@
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
+            // clmYearLevelID
+            // 
+            this.clmYearLevelID.HeaderText = "YEAR LEVEL ID";
+            this.clmYearLevelID.Name = "clmYearLevelID";
+            this.clmYearLevelID.ReadOnly = true;
+            this.clmYearLevelID.Visible = false;
+            // 
             // Column1
             // 
             this.Column1.HeaderText = "LEVEL";
@@ -166,11 +189,28 @@
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
+            // clmSectionID
+            // 
+            this.clmSectionID.HeaderText = "SECTION ID";
+            this.clmSectionID.Name = "clmSectionID";
+            this.clmSectionID.ReadOnly = true;
+            this.clmSectionID.Visible = false;
+            // 
             // Column4
             // 
             this.Column4.HeaderText = "SECTION";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column8.HeaderText = "SECTION";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Text = "CHANGE";
+            this.Column8.UseColumnTextForButtonValue = true;
+            this.Column8.Width = 62;
             // 
             // clmAssessment
             // 
@@ -186,7 +226,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(985, 586);
+            this.ClientSize = new System.Drawing.Size(1028, 586);
             this.Controls.Add(this.txtRecords);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
@@ -216,14 +256,18 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmRegisteredStudentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmStudentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmYearLevelID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmSectionID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewButtonColumn Column8;
         private System.Windows.Forms.DataGridViewButtonColumn clmAssessment;
     }
 }
