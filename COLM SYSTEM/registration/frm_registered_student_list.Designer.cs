@@ -46,7 +46,7 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmSectionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.clmChangeSection = new System.Windows.Forms.DataGridViewButtonColumn();
             this.clmAssessment = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -97,7 +97,7 @@
             this.Column7,
             this.clmSectionID,
             this.Column4,
-            this.Column8,
+            this.clmChangeSection,
             this.clmAssessment});
             this.dataGridView1.Location = new System.Drawing.Point(15, 47);
             this.dataGridView1.Name = "dataGridView1";
@@ -202,15 +202,15 @@
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
-            // Column8
+            // clmChangeSection
             // 
-            this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column8.HeaderText = "SECTION";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Text = "CHANGE";
-            this.Column8.UseColumnTextForButtonValue = true;
-            this.Column8.Width = 62;
+            this.clmChangeSection.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmChangeSection.HeaderText = "SECTION";
+            this.clmChangeSection.Name = "clmChangeSection";
+            this.clmChangeSection.ReadOnly = true;
+            this.clmChangeSection.Text = "CHANGE";
+            this.clmChangeSection.UseColumnTextForButtonValue = true;
+            this.clmChangeSection.Width = 62;
             // 
             // clmAssessment
             // 
@@ -267,7 +267,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSectionID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewButtonColumn Column8;
+        private System.Windows.Forms.DataGridViewButtonColumn clmChangeSection;
         private System.Windows.Forms.DataGridViewButtonColumn clmAssessment;
     }
 }

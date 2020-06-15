@@ -78,6 +78,12 @@
     <Compile Include="registration\frm_registered_student_list.Designer.cs">
       <DependentUpon>frm_registered_student_list.cs</DependentUpon>
     </Compile>
+    <Compile Include="registration\frm_registration_edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="registration\frm_registration_edit.Designer.cs">
+      <DependentUpon>frm_registration_edit.cs</DependentUpon>
+    </Compile>
     <Compile Include="registration\frm_registration_entry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     </Compile>
     <EmbeddedResource Include="registration\frm_registered_student_list.resx">
       <DependentUpon>frm_registered_student_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="registration\frm_registration_edit.resx">
+      <DependentUpon>frm_registration_edit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="registration\frm_registration_entry.resx">
       <DependentUpon>frm_registration_entry.cs</DependentUpon>
