@@ -134,6 +134,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="registration\frm_registered_student_list.resx">
       <DependentUpon>frm_registered_student_list.cs</DependentUpon>
@@ -175,6 +176,11 @@
       <Name>COLM SYSTEM LIBRARY</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\colm logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User Settings.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
