@@ -83,9 +83,19 @@ namespace COLM_SYSTEM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Groups {
+        internal static System.Drawing.Bitmap Registration {
             get {
-                object obj = ResourceManager.GetObject("Groups", resourceCulture);
+                object obj = ResourceManager.GetObject("Registration", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap User_Group {
+            get {
+                object obj = ResourceManager.GetObject("User_Group", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
