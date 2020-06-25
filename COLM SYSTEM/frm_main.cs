@@ -12,6 +12,7 @@ namespace COLM_SYSTEM
 {
     public partial class frm_main : Form
     {
+        //#FF004000 metro studio color use for green
         public frm_main()
         {
             InitializeComponent();

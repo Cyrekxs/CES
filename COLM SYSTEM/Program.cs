@@ -19,7 +19,7 @@ namespace COLM_SYSTEM
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_registered_student_list());
+            Application.Run(new frm_main());
         }
     }
 }

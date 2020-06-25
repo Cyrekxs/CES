@@ -9,7 +9,7 @@ namespace COLM_SYSTEM.registration
     public partial class frm_registration_entry : Form
     {
         List<YearLevel> _YearLevels = YearLevel.GetYearLevels();
-
+        StudentInfo _StudentInfo = new StudentInfo();
 
         public frm_registration_entry()
         {
