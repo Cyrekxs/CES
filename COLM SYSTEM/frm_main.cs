@@ -17,5 +17,10 @@ namespace COLM_SYSTEM
         {
             InitializeComponent();
         }
+
+        private void frm_main_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
