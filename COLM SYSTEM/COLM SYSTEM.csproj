@@ -52,6 +52,12 @@
     <Compile Include="assessment\frm_assessment.Designer.cs">
       <DependentUpon>frm_assessment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard\UC_DashBoard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard\UC_DashBoard.Designer.cs">
+      <DependentUpon>UC_DashBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="fees\frm_fee_list.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </Compile>
     <EmbeddedResource Include="assessment\frm_assessment.resx">
       <DependentUpon>frm_assessment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\UC_DashBoard.resx">
+      <DependentUpon>UC_DashBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fees\frm_fee_list.resx">
       <DependentUpon>frm_fee_list.cs</DependentUpon>
@@ -192,13 +201,13 @@
     <None Include="Resources\User-Group.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Information.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Registration.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Assessment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Information.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
