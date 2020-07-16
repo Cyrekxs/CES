@@ -83,6 +83,12 @@
     <Compile Include="fees\frm_settings_fee_entry.Designer.cs">
       <DependentUpon>frm_settings_fee_entry.cs</DependentUpon>
     </Compile>
+    <Compile Include="student information\uc_student_information_list.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="student information\uc_student_information_list.Designer.cs">
+      <DependentUpon>uc_student_information_list.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilties.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -177,6 +183,9 @@
     <EmbeddedResource Include="student information\frm_student_information_list.resx">
       <DependentUpon>frm_student_information_list.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="student information\uc_student_information_list.resx">
+      <DependentUpon>uc_student_information_list.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -222,6 +231,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DashBoard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

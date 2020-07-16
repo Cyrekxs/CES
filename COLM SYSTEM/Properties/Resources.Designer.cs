@@ -93,6 +93,16 @@ namespace COLM_SYSTEM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DashBoard {
+            get {
+                object obj = ResourceManager.GetObject("DashBoard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Home {
             get {
                 object obj = ResourceManager.GetObject("Home", resourceCulture);
@@ -116,6 +126,16 @@ namespace COLM_SYSTEM.Properties {
         internal static System.Drawing.Bitmap Registration {
             get {
                 object obj = ResourceManager.GetObject("Registration", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Search {
+            get {
+                object obj = ResourceManager.GetObject("Search", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
