@@ -29,7 +29,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 FeeDesc = Convert.ToString(reader["Fee"]),
                                 FeeType = Convert.ToString(reader["Type"]),
                                 YearLeveLID = Convert.ToInt16(reader["YearLevelID"]),
-                                Amount = Convert.ToString(reader["Amount"]),
+                                Amount = Convert.ToDouble(reader["Amount"]),
                                 SchoolYearID = Convert.ToInt32(reader["SchoolYearID"])
                             };
                             fees.Add(fee);
@@ -69,7 +69,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 FeeDesc = Convert.ToString(reader["Fee"]),
                                 FeeType = Convert.ToString(reader["Type"]),
                                 YearLeveLID = Convert.ToInt16(reader["YearLevelID"]),
-                                Amount = Convert.ToString(reader["Amount"]),
+                                Amount = Convert.ToDouble(reader["Amount"]),
                                 SchoolYearID = Convert.ToInt32(reader["SchoolYearID"])
                             };
                             fees.Add(fee);

@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using COLM_SYSTEM_LIBRARY.model;
+using System;
 using System.Windows.Forms;
-using COLM_SYSTEM_LIBRARY.model;
 
 namespace COLM_SYSTEM
 {
@@ -57,15 +50,15 @@ namespace COLM_SYSTEM
             Fee fee = new Fee();
             fee.FeeDesc = txtFee.Text;
             fee.FeeType = cmbFeeType.Text;
-            fee.EducationLevel = cmbEducationLevel.Text;
-            fee.YearLeveLID = cmbYearLevel.Text;
-            fee.Amount = txtFeeAmount.Text;
+            fee.YearLeveLID = YearLevel.GetYearLevel(cmbEducationLevel.Text, cmbYearLevel.Text).YearLevelID;
+            fee.Amount = Convert.ToDouble(txtFeeAmount.Text);
 
             if (Fee.InsertFee(fee) == true)
             {
                 MessageBox.Show("Fee has been successfully saved!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else{
+            else
+            {
                 MessageBox.Show("Fee saving failed!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }

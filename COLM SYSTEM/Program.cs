@@ -1,6 +1,4 @@
-﻿using COLM_SYSTEM.assessment;
-using COLM_SYSTEM.registration;
-using COLM_SYSTEM.student_information;
+﻿using COLM_SYSTEM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +17,7 @@ namespace COLM_SYSTEM
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_main());
+            Application.Run(new Discounts.frm_discount_entry());
         }
     }
 }

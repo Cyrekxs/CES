@@ -52,7 +52,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                     {
                         while (reader.Read())
                         {
-                            YearLevel yearLevel = new YearLevel()
+                            yearLevel = new YearLevel()
                             {
                                 YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),

@@ -26,7 +26,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                             {
                                 DiscountID = Convert.ToInt32(reader["DiscountID"]),
                                 DiscountCode = Convert.ToString(reader["Discount"]),
-                                YearLeveLID = Convert.ToString(reader["YearLevelID"]),
+                                YearLeveLID = Convert.ToInt16(reader["YearLevelID"]),
                                 Type = Convert.ToString(reader["Type"]),
                                 Value = Convert.ToDouble(reader["Value"]),
                                 TFee = Convert.ToBoolean(reader["TFee"]),
@@ -50,7 +50,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("INSERT INTO tbl_settings_discounts VALUES (@YearLevelID,@DiscountCode,@Type,@Value,@TFee,@MFee,@OFee,@SchoolYearID,GETDATE())", conn))
                 {
-                    comm.Parameters.AddWithValue("@YearLevel", model.YearLeveLID);
+                    comm.Parameters.AddWithValue("@YearLevelID", model.YearLeveLID);
                     comm.Parameters.AddWithValue("@DiscountCode", model.DiscountCode);
                     comm.Parameters.AddWithValue("@Type", model.Type);
                     comm.Parameters.AddWithValue("@Value", model.Value);
@@ -58,6 +58,28 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                     comm.Parameters.AddWithValue("@MFee", model.MFee);
                     comm.Parameters.AddWithValue("@OFee", model.OFee);
                     comm.Parameters.AddWithValue("@SchoolYearID", model.SchoolYearID);
+                    if (comm.ExecuteNonQuery() > 0)
+                        return true;
+                    else
+                        return false;
+                }
+            }
+        }
+
+        public static bool UpdateDiscount(Discount model)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("UPDATE tbl_settings_discounts SET Discount = @DiscountCode, Type = @Type, Value = @Value, TFee = @TFee, MFee = @MFee, OFee = @OFee WHERE DiscountID = @DiscountID", conn))
+                {
+                    comm.Parameters.AddWithValue("@DiscountID", model.DiscountID);
+                    comm.Parameters.AddWithValue("@DiscountCode", model.DiscountCode);
+                    comm.Parameters.AddWithValue("@Type", model.Type);
+                    comm.Parameters.AddWithValue("@Value", model.Value);
+                    comm.Parameters.AddWithValue("@TFee", model.TFee);
+                    comm.Parameters.AddWithValue("@MFee", model.MFee);
+                    comm.Parameters.AddWithValue("@OFee", model.OFee);
                     if (comm.ExecuteNonQuery() > 0)
                         return true;
                     else

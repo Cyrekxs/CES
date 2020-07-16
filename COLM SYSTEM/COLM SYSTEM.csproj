@@ -83,6 +83,7 @@
     <Compile Include="fees\frm_settings_fee_entry.Designer.cs">
       <DependentUpon>frm_settings_fee_entry.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilties.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="registration\frm_registered_student_list.cs">
@@ -132,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard\UC_DashBoard.resx">
       <DependentUpon>UC_DashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Discounts\frm_discount_entry.resx">
+      <DependentUpon>frm_discount_entry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fees\frm_fee_list.resx">
       <DependentUpon>frm_fee_list.cs</DependentUpon>
