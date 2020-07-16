@@ -9,7 +9,7 @@ namespace COLM_SYSTEM_LIBRARY.model
 {
     public class YearLevel
     {
-        public int YearLvlID { get; set; }
+        public int YearLevelID { get; set; }
         public string EducationLevel { get; set; }
         public string YearLvl { get; set; }
         public int NextYearLvlID { get; set; }
@@ -17,6 +17,11 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static List<YearLevel> GetYearLevels()
         {
             return YearLevel_DS.GetYearLevels();
+        }
+
+        public static YearLevel GetYearLevel(string EducationLevel, string YearLevel)
+        {
+            return YearLevel_DS.GetYearLevel(EducationLevel, YearLevel);
         }
 
         public static List<string> GetYearLevelsByEducationLevel(List<YearLevel> yearLevels, string EducationLevel)
@@ -30,7 +35,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         {
             return (from r in yearLevels
                     where r.EducationLevel == EducationLevel && r.YearLvl == YearLevel
-                    select r.YearLvlID).FirstOrDefault();
+                    select r.YearLevelID).FirstOrDefault();
         }
 
         public static List<Section> GetYearLevelSections(int YearLevelID)

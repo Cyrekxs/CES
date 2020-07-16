@@ -59,6 +59,12 @@
     <Compile Include="Dashboard\UC_DashBoard.Designer.cs">
       <DependentUpon>UC_DashBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Discounts\frm_discount_entry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Discounts\frm_discount_entry.Designer.cs">
+      <DependentUpon>frm_discount_entry.cs</DependentUpon>
+    </Compile>
     <Compile Include="fees\frm_fee_list.cs">
       <SubType>Form</SubType>
     </Compile>

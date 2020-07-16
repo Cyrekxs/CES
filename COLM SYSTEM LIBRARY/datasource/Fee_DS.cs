@@ -28,8 +28,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 FeeID = Convert.ToInt32(reader["FeeID"]),
                                 FeeDesc = Convert.ToString(reader["Fee"]),
                                 FeeType = Convert.ToString(reader["Type"]),
-                                EducationLevel = Convert.ToString(reader["EducationLevel"]),
-                                YearLevel = Convert.ToString(reader["YearLevel"]),
+                                YearLeveLID = Convert.ToInt16(reader["YearLevelID"]),
                                 Amount = Convert.ToString(reader["Amount"]),
                                 SchoolYearID = Convert.ToInt32(reader["SchoolYearID"])
                             };
@@ -69,8 +68,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 FeeID = Convert.ToInt32(reader["FeeID"]),
                                 FeeDesc = Convert.ToString(reader["Fee"]),
                                 FeeType = Convert.ToString(reader["Type"]),
-                                EducationLevel = Convert.ToString(reader["EducationLevel"]),
-                                YearLevel = Convert.ToString(reader["YearLevel"]),
+                                YearLeveLID = Convert.ToInt16(reader["YearLevelID"]),
                                 Amount = Convert.ToString(reader["Amount"]),
                                 SchoolYearID = Convert.ToInt32(reader["SchoolYearID"])
                             };
@@ -95,8 +93,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                     comm.Parameters.AddWithValue("@Fee", model.FeeDesc);
                     comm.Parameters.AddWithValue("@Type", model.FeeType);
                     comm.Parameters.AddWithValue("@amount", model.Amount);
-                    comm.Parameters.AddWithValue("@EducationLevel", model.EducationLevel);
-                    comm.Parameters.AddWithValue("@YearLevel", model.YearLevel);
+                    comm.Parameters.AddWithValue("@YearLevel", model.YearLeveLID);
                     comm.Parameters.AddWithValue("@SchoolYearID", model.SchoolYearID);
                     result = comm.ExecuteNonQuery();
                     if (result > 0)
@@ -119,8 +116,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                     comm.Parameters.AddWithValue("@Fee", model.FeeDesc);
                     comm.Parameters.AddWithValue("@Type", model.FeeType);
                     comm.Parameters.AddWithValue("@amount", model.Amount);
-                    comm.Parameters.AddWithValue("@EducationLevel", model.EducationLevel);
-                    comm.Parameters.AddWithValue("@YearLevel", model.YearLevel);
+                    comm.Parameters.AddWithValue("@YearLevel", model.YearLeveLID);
                     comm.Parameters.AddWithValue("@SchoolYearID", model.SchoolYearID);
                     result = comm.ExecuteNonQuery();
                     if (result > 0)

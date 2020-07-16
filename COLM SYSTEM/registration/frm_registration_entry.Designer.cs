@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.txtStudentName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtLRN = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cmbSections = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.cmbYearLevel = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbEducationLevel = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.cmbSections = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +60,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "STUDENT INFORMATION";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(437, 51);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(105, 24);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "BROWSE";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // txtStudentName
             // 
@@ -111,6 +121,38 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "REGISTRATION INFO";
+            // 
+            // cmbSections
+            // 
+            this.cmbSections.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSections.FormattingEnabled = true;
+            this.cmbSections.Items.AddRange(new object[] {
+            "PRE ELEMENTARY",
+            "ELEMENTARY",
+            "JUNIOR HIGH",
+            "SENIOR HIGH"});
+            this.cmbSections.Location = new System.Drawing.Point(151, 107);
+            this.cmbSections.Name = "cmbSections";
+            this.cmbSections.Size = new System.Drawing.Size(126, 25);
+            this.cmbSections.TabIndex = 8;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(148, 87);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 17);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "SECTION";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(351, 162);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(80, 30);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "CANCEL";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -169,48 +211,6 @@
             this.label3.Size = new System.Drawing.Size(107, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "EDUCATION LEVEL";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(351, 162);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(80, 30);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "CANCEL";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // cmbSections
-            // 
-            this.cmbSections.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSections.FormattingEnabled = true;
-            this.cmbSections.Items.AddRange(new object[] {
-            "PRE ELEMENTARY",
-            "ELEMENTARY",
-            "JUNIOR HIGH",
-            "SENIOR HIGH"});
-            this.cmbSections.Location = new System.Drawing.Point(151, 107);
-            this.cmbSections.Name = "cmbSections";
-            this.cmbSections.Size = new System.Drawing.Size(126, 25);
-            this.cmbSections.TabIndex = 8;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(148, 87);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 17);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "SECTION";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(437, 51);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(105, 24);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "BROWSE";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // frm_registration_entry
             // 

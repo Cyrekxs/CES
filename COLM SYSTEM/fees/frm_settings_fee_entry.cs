@@ -58,7 +58,7 @@ namespace COLM_SYSTEM
             fee.FeeDesc = txtFee.Text;
             fee.FeeType = cmbFeeType.Text;
             fee.EducationLevel = cmbEducationLevel.Text;
-            fee.YearLevel = cmbYearLevel.Text;
+            fee.YearLeveLID = cmbYearLevel.Text;
             fee.Amount = txtFeeAmount.Text;
 
             if (Fee.InsertFee(fee) == true)

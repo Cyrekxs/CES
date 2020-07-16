@@ -8,17 +8,18 @@ namespace COLM_SYSTEM.assessment
 {
     public partial class frm_student_information : Form
     {
-        string EducationLevel = "";
-        string YearLevel = "";
-        string Section = "";
+        string _educationLevel = "";
+        string _yearLevel = "";
+        string _section = "";
 
         private List<Discount> AddedDiscounts = new List<Discount>();
 
         private void LoadFees()
         {
-            EducationLevel = txtEducationLevel.Text;
-            YearLevel = txtYearLevel.Text;
-            Section = txtSection.Text;
+            _educationLevel = txtEducationLevel.Text;
+            _yearLevel = txtYearLevel.Text;
+            _section = txtSection.Text;
+            int yearLevelID = YearLevel.GetYearLevel(_educationLevel, _yearLevel).YearLevelID;
 
             List<Fee> tfee_list = Fee.GetFeesByType(Enums.FeeTypes.TFee);
             List<Fee> mfee_list = Fee.GetFeesByType(Enums.FeeTypes.MFee);
@@ -26,19 +27,19 @@ namespace COLM_SYSTEM.assessment
 
             foreach (var item in tfee_list)
             {
-                if (item.EducationLevel == EducationLevel && item.YearLevel == YearLevel)
+                if (item.YearLeveLID == yearLevelID)
                     dataGridView1.Rows.Add(item.FeeID, item.FeeDesc, item.Amount);
             }
 
             foreach (var item in mfee_list)
             {
-                if (item.EducationLevel == EducationLevel && item.YearLevel == YearLevel)
+                if (item.YearLeveLID == yearLevelID)
                     dataGridView2.Rows.Add(item.FeeID, item.FeeDesc, item.Amount);
             }
 
             foreach (var item in ofee_list)
             {
-                if (item.EducationLevel == EducationLevel && item.YearLevel == YearLevel)
+                if (item.YearLeveLID == yearLevelID)
                     dataGridView3.Rows.Add(item.FeeID, item.FeeDesc, item.Amount);
             }
         }
@@ -49,8 +50,7 @@ namespace COLM_SYSTEM.assessment
             cmbDiscount.Tag = discounts;
             foreach (var item in discounts)
             {
-                if ((item.EducationLevel == "ALL" && item.YearLevel == "ALL") || (item.EducationLevel == EducationLevel && item.YearLevel == YearLevel) || (item.EducationLevel == EducationLevel && item.YearLevel == "ALL"))
-                    cmbDiscount.Items.Add(item.DiscountCode);
+
             }
         }
 

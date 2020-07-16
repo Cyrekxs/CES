@@ -12,8 +12,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public int DiscountID { get; set; }
         public string DiscountCode { get; set; }
         public string Type { get; set; }
-        public string EducationLevel { get; set; }
-        public string YearLevel { get; set; }
+        public string YearLeveLID { get; set; }
         public double Value { get; set; }
         public bool TFee { get; set; }
         public bool MFee { get; set; }

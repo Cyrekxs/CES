@@ -26,8 +26,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                             {
                                 DiscountID = Convert.ToInt32(reader["DiscountID"]),
                                 DiscountCode = Convert.ToString(reader["Discount"]),
-                                EducationLevel = Convert.ToString(reader["EducationLevel"]),
-                                YearLevel = Convert.ToString(reader["YearLevel"]),
+                                YearLeveLID = Convert.ToString(reader["YearLevelID"]),
                                 Type = Convert.ToString(reader["Type"]),
                                 Value = Convert.ToDouble(reader["Value"]),
                                 TFee = Convert.ToBoolean(reader["TFee"]),
@@ -49,10 +48,9 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("INSERT INTO tbl_settings_discounts VALUES (@EducationLevel,@YearLevel,@DiscountCode,@Type,@Value,@TFee,@MFee,@OFee,@SchoolYearID,GETDATE())", conn))
+                using (SqlCommand comm = new SqlCommand("INSERT INTO tbl_settings_discounts VALUES (@YearLevelID,@DiscountCode,@Type,@Value,@TFee,@MFee,@OFee,@SchoolYearID,GETDATE())", conn))
                 {
-                    comm.Parameters.AddWithValue("@EducationLevel", model.EducationLevel);
-                    comm.Parameters.AddWithValue("@YearLevel", model.YearLevel);
+                    comm.Parameters.AddWithValue("@YearLevel", model.YearLeveLID);
                     comm.Parameters.AddWithValue("@DiscountCode", model.DiscountCode);
                     comm.Parameters.AddWithValue("@Type", model.Type);
                     comm.Parameters.AddWithValue("@Value", model.Value);
