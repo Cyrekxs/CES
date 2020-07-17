@@ -12,8 +12,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public int DiscountID { get; set; }
         public string DiscountCode { get; set; }
         public string Type { get; set; }
-        public string EducationLevel { get; set; }
-        public string YearLevel { get; set; }
+        public int YearLeveLID { get; set; }
         public double Value { get; set; }
         public bool TFee { get; set; }
         public bool MFee { get; set; }
@@ -24,6 +23,11 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static List<Discount> GetDiscounts()
         {
             return Discount_DS.GetDiscounts();
+        }
+
+        public static bool InsertDiscount(Discount discount)
+        {
+            return Discount_DS.InsertDiscount(discount);
         }
     }
 }

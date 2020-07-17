@@ -6,19 +6,27 @@ using System.Windows.Forms;
 
 namespace COLM_SYSTEM.assessment
 {
-    public partial class frm_student_information : Form
+    public partial class frm_assessment : Form
     {
-        string EducationLevel = "";
-        string YearLevel = "";
-        string Section = "";
+        string _educationLevel = "";
+        string _yearLevel = "";
+        string _section = "";
 
         private List<Discount> AddedDiscounts = new List<Discount>();
 
+        private int GetStudentYearLevelID()
+        {
+            _educationLevel = txtEducationLevel.Text;
+            _yearLevel = txtYearLevel.Text;
+            _section = txtSection.Text;
+
+            int yearLevelID = YearLevel.GetYearLevel(_educationLevel, _yearLevel).YearLevelID;
+            return yearLevelID;
+        }
+
         private void LoadFees()
         {
-            EducationLevel = txtEducationLevel.Text;
-            YearLevel = txtYearLevel.Text;
-            Section = txtSection.Text;
+            int yearLevelID = GetStudentYearLevelID();
 
             List<Fee> tfee_list = Fee.GetFeesByType(Enums.FeeTypes.TFee);
             List<Fee> mfee_list = Fee.GetFeesByType(Enums.FeeTypes.MFee);
@@ -26,30 +34,31 @@ namespace COLM_SYSTEM.assessment
 
             foreach (var item in tfee_list)
             {
-                if (item.EducationLevel == EducationLevel && item.YearLevel == YearLevel)
-                    dataGridView1.Rows.Add(item.FeeID, item.FeeDesc, item.Amount);
+                if (item.YearLeveLID == yearLevelID)
+                    dataGridView1.Rows.Add(item.FeeID, item.FeeDesc, item.Amount.ToString("n"));
             }
 
             foreach (var item in mfee_list)
             {
-                if (item.EducationLevel == EducationLevel && item.YearLevel == YearLevel)
-                    dataGridView2.Rows.Add(item.FeeID, item.FeeDesc, item.Amount);
+                if (item.YearLeveLID == yearLevelID)
+                    dataGridView2.Rows.Add(item.FeeID, item.FeeDesc, item.Amount.ToString("n"));
             }
 
             foreach (var item in ofee_list)
             {
-                if (item.EducationLevel == EducationLevel && item.YearLevel == YearLevel)
-                    dataGridView3.Rows.Add(item.FeeID, item.FeeDesc, item.Amount);
+                if (item.YearLeveLID == yearLevelID)
+                    dataGridView3.Rows.Add(item.FeeID, item.FeeDesc, item.Amount.ToString("n"));
             }
         }
 
         private void LoadDiscounts()
         {
+            int yearLevelID = GetStudentYearLevelID();
             List<Discount> discounts = Discount.GetDiscounts();
             cmbDiscount.Tag = discounts;
             foreach (var item in discounts)
             {
-                if ((item.EducationLevel == "ALL" && item.YearLevel == "ALL") || (item.EducationLevel == EducationLevel && item.YearLevel == YearLevel) || (item.EducationLevel == EducationLevel && item.YearLevel == "ALL"))
+                if (item.YearLeveLID == yearLevelID)
                     cmbDiscount.Items.Add(item.DiscountCode);
             }
         }
@@ -71,12 +80,14 @@ namespace COLM_SYSTEM.assessment
             
         }
 
-        public frm_student_information()
+        public frm_assessment()
         {
             InitializeComponent();
             LoadFees();
             LoadDiscounts();
             LoadAssessmentTypes();
+
+            
         }
 
         private void btnAddDiscount_Click(object sender, System.EventArgs e)
@@ -114,9 +125,12 @@ namespace COLM_SYSTEM.assessment
                 TotalOFee += Convert.ToDouble(item.Cells["clmOFeeAmount"].Value);
             }
 
-            txtTFee.Text = TotalTFee.ToString();
-            txtMFee.Text = TotalMFee.ToString();
-            txtOFee.Text = TotalOFee.ToString();
+            txtMFee.Text = TotalMFee.ToString("n");
+            txtOFee.Text = TotalOFee.ToString("n");
+
+            txtTotalTFee.Text = TotalTFee.ToString("n");
+            txtTotalMFee.Text = TotalMFee.ToString("n");
+            txtTotalOFee.Text = TotalOFee.ToString("n");
         }
     }
 }

@@ -25,7 +25,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                         {
                             YearLevel yearLevel = new YearLevel()
                             {
-                                YearLvlID = Convert.ToInt32(reader["YearLevelID"]),
+                                YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
                                 YearLvl = Convert.ToString(reader["YearLevel"]),
                                 NextYearLvlID = Convert.ToInt32(reader["NextYearLevelID"])
@@ -36,6 +36,34 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 }
             }
             return yearLevels;
+        }
+
+        public static YearLevel GetYearLevel(string EducationLevel,string YearLevel)
+        {
+            YearLevel yearLevel = new YearLevel();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_settings_yearlevels WHERE EducationLevel = @EducationLevel AND Yearlevel = @YearLevel", conn))
+                {
+                    comm.Parameters.AddWithValue("@EducationLevel", EducationLevel);
+                    comm.Parameters.AddWithValue("@YearLevel", YearLevel);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            yearLevel = new YearLevel()
+                            {
+                                YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
+                                EducationLevel = Convert.ToString(reader["EducationLevel"]),
+                                YearLvl = Convert.ToString(reader["YearLevel"]),
+                                NextYearLvlID = Convert.ToInt32(reader["NextYearLevelID"])
+                            };
+                        }
+                    }
+                }
+            }
+            return yearLevel;
         }
 
         public static List<Section> GetYearLevelSections(int YearLevelID)

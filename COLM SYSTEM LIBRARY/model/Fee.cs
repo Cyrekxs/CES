@@ -13,9 +13,8 @@ namespace COLM_SYSTEM_LIBRARY.model
         public int FeeID { get; set; }
         public string FeeDesc { get; set; }
         public string FeeType { get; set; }
-        public string EducationLevel { get; set; }
-        public string YearLevel { get; set; }
-        public string Amount { get; set; }
+        public int YearLeveLID { get; set; }
+        public double Amount { get; set; }
         public int SchoolYearID { get; set; }
 
         public static bool InsertFee(Fee model)
