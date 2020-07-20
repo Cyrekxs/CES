@@ -14,9 +14,10 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string Type { get; set; }
         public int YearLeveLID { get; set; }
         public double Value { get; set; }
-        public bool TFee { get; set; }
-        public bool MFee { get; set; }
-        public bool OFee { get; set; }
+        public bool IsCustomizeComputation { get; set; }
+        public double TFee { get; set; }
+        public double MFee { get; set; }
+        public double OFee { get; set; }
         public int SchoolYearID { get; set; }
         public DateTime DateCreated { get; set; }
 

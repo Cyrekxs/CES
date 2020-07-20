@@ -29,9 +29,10 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 YearLeveLID = Convert.ToInt16(reader["YearLevelID"]),
                                 Type = Convert.ToString(reader["Type"]),
                                 Value = Convert.ToDouble(reader["Value"]),
-                                TFee = Convert.ToBoolean(reader["TFee"]),
-                                MFee = Convert.ToBoolean(reader["MFee"]),
-                                OFee = Convert.ToBoolean(reader["OFee"]),
+                                IsCustomizeComputation = Convert.ToBoolean(reader["IsCustomizeComputation"]),
+                                TFee = Convert.ToDouble(reader["TFee"]),
+                                MFee = Convert.ToDouble(reader["MFee"]),
+                                OFee = Convert.ToDouble(reader["OFee"]),
                                 SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
                                 DateCreated = Convert.ToDateTime(reader["DateCreated"])
                             };
@@ -48,12 +49,13 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("INSERT INTO tbl_settings_discounts VALUES (@YearLevelID,@DiscountCode,@Type,@Value,@TFee,@MFee,@OFee,@SchoolYearID,GETDATE())", conn))
+                using (SqlCommand comm = new SqlCommand("INSERT INTO tbl_settings_discounts VALUES (@YearLevelID,@DiscountCode,@Type,@Value,@IsCustomize,@TFee,@MFee,@OFee,@SchoolYearID,GETDATE())", conn))
                 {
                     comm.Parameters.AddWithValue("@YearLevelID", model.YearLeveLID);
                     comm.Parameters.AddWithValue("@DiscountCode", model.DiscountCode);
                     comm.Parameters.AddWithValue("@Type", model.Type);
                     comm.Parameters.AddWithValue("@Value", model.Value);
+                    comm.Parameters.AddWithValue("@IsCustomize", model.IsCustomizeComputation);
                     comm.Parameters.AddWithValue("@TFee", model.TFee);
                     comm.Parameters.AddWithValue("@MFee", model.MFee);
                     comm.Parameters.AddWithValue("@OFee", model.OFee);
@@ -71,12 +73,13 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("UPDATE tbl_settings_discounts SET Discount = @DiscountCode, Type = @Type, Value = @Value, TFee = @TFee, MFee = @MFee, OFee = @OFee WHERE DiscountID = @DiscountID", conn))
+                using (SqlCommand comm = new SqlCommand("UPDATE tbl_settings_discounts SET Discount = @DiscountCode, Type = @Type, Value = @Value,IsCustomizeComputation = @IsCustomize, TFee = @TFee, MFee = @MFee, OFee = @OFee WHERE DiscountID = @DiscountID", conn))
                 {
                     comm.Parameters.AddWithValue("@DiscountID", model.DiscountID);
                     comm.Parameters.AddWithValue("@DiscountCode", model.DiscountCode);
                     comm.Parameters.AddWithValue("@Type", model.Type);
                     comm.Parameters.AddWithValue("@Value", model.Value);
+                    comm.Parameters.AddWithValue("@IsCustomize", model.IsCustomizeComputation);
                     comm.Parameters.AddWithValue("@TFee", model.TFee);
                     comm.Parameters.AddWithValue("@MFee", model.MFee);
                     comm.Parameters.AddWithValue("@OFee", model.OFee);
