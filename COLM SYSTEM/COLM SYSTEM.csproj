@@ -65,6 +65,12 @@
     <Compile Include="Discounts\frm_discount_entry.Designer.cs">
       <DependentUpon>frm_discount_entry.cs</DependentUpon>
     </Compile>
+    <Compile Include="Discounts\uc_discount_list.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Discounts\uc_discount_list.Designer.cs">
+      <DependentUpon>uc_discount_list.cs</DependentUpon>
+    </Compile>
     <Compile Include="fees\frm_fee_list.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Discounts\frm_discount_entry.resx">
       <DependentUpon>frm_discount_entry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Discounts\uc_discount_list.resx">
+      <DependentUpon>uc_discount_list.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fees\frm_fee_list.resx">
       <DependentUpon>frm_fee_list.cs</DependentUpon>

@@ -17,7 +17,7 @@ namespace COLM_SYSTEM
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Discounts.frm_discount_entry());
+            Application.Run(new frm_main());
         }
     }
 }

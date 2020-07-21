@@ -44,6 +44,40 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return discounts;
         }
 
+        public static Discount GetDiscount(int DiscountID)
+        {
+            Discount discount = new Discount();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_settings_discounts WHERE DiscountID = @DiscountID ORDER BY DateCreated ASC", conn))
+                {
+                    comm.Parameters.AddWithValue("@DiscountID", DiscountID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            discount = new Discount()
+                            {
+                                DiscountID = Convert.ToInt32(reader["DiscountID"]),
+                                DiscountCode = Convert.ToString(reader["Discount"]),
+                                YearLeveLID = Convert.ToInt16(reader["YearLevelID"]),
+                                Type = Convert.ToString(reader["Type"]),
+                                Value = Convert.ToDouble(reader["Value"]),
+                                IsCustomizeComputation = Convert.ToBoolean(reader["IsCustomizeComputation"]),
+                                TFee = Convert.ToDouble(reader["TFee"]),
+                                MFee = Convert.ToDouble(reader["MFee"]),
+                                OFee = Convert.ToDouble(reader["OFee"]),
+                                SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
+                                DateCreated = Convert.ToDateTime(reader["DateCreated"])
+                            };
+                        }
+                    }
+                }
+            }
+            return discount;
+        }
+
         public static bool InsertDiscount(Discount model)
         {
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))

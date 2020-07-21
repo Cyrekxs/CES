@@ -26,9 +26,21 @@ namespace COLM_SYSTEM_LIBRARY.model
             return Discount_DS.GetDiscounts();
         }
 
+        public static Discount GetDiscount(int DiscountID)
+        {
+            return Discount_DS.GetDiscount(DiscountID);
+        }
+
         public static bool InsertDiscount(Discount discount)
         {
             return Discount_DS.InsertDiscount(discount);
         }
+
+        public static bool UpdateDiscount(Discount discount)
+        {
+            return Discount_DS.UpdateDiscount(discount);
+        }
+
+
     }
 }

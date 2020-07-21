@@ -49,6 +49,8 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button7 = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -58,9 +60,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
-            this.uc_student_information_list1 = new COLM_SYSTEM.student_information.uc_student_information_list();
-            this.label18 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
+            this.PanelMain = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -332,6 +332,36 @@
             this.panel3.Size = new System.Drawing.Size(142, 646);
             this.panel3.TabIndex = 8;
             // 
+            // button7
+            // 
+            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Source Sans Pro SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.Image = global::COLM_SYSTEM.Properties.Resources.Information;
+            this.button7.Location = new System.Drawing.Point(0, 422);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(142, 67);
+            this.button7.TabIndex = 19;
+            this.button7.Text = "DISCOUNTS";
+            this.button7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // label18
+            // 
+            this.label18.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label18.Font = new System.Drawing.Font("Source Sans Pro", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.Silver;
+            this.label18.Location = new System.Drawing.Point(0, 396);
+            this.label18.Name = "label18";
+            this.label18.Padding = new System.Windows.Forms.Padding(0, 5, 0, 10);
+            this.label18.Size = new System.Drawing.Size(142, 26);
+            this.label18.TabIndex = 18;
+            this.label18.Text = "SETTINGS";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // button5
             // 
             this.button5.Dock = System.Windows.Forms.DockStyle.Top;
@@ -456,44 +486,13 @@
             this.button9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button9.UseVisualStyleBackColor = true;
             // 
-            // uc_student_information_list1
+            // PanelMain
             // 
-            this.uc_student_information_list1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_student_information_list1.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uc_student_information_list1.Location = new System.Drawing.Point(142, 59);
-            this.uc_student_information_list1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.uc_student_information_list1.Name = "uc_student_information_list1";
-            this.uc_student_information_list1.Size = new System.Drawing.Size(918, 646);
-            this.uc_student_information_list1.TabIndex = 9;
-            // 
-            // label18
-            // 
-            this.label18.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label18.Font = new System.Drawing.Font("Source Sans Pro", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.Silver;
-            this.label18.Location = new System.Drawing.Point(0, 396);
-            this.label18.Name = "label18";
-            this.label18.Padding = new System.Windows.Forms.Padding(0, 5, 0, 10);
-            this.label18.Size = new System.Drawing.Size(142, 26);
-            this.label18.TabIndex = 18;
-            this.label18.Text = "SETTINGS";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // button7
-            // 
-            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Source Sans Pro SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Image = global::COLM_SYSTEM.Properties.Resources.Information;
-            this.button7.Location = new System.Drawing.Point(0, 422);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(142, 67);
-            this.button7.TabIndex = 19;
-            this.button7.Text = "DATA MANAGEMENT";
-            this.button7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button7.UseVisualStyleBackColor = true;
+            this.PanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelMain.Location = new System.Drawing.Point(142, 59);
+            this.PanelMain.Name = "PanelMain";
+            this.PanelMain.Size = new System.Drawing.Size(918, 646);
+            this.PanelMain.TabIndex = 9;
             // 
             // frm_main
             // 
@@ -501,7 +500,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1060, 756);
-            this.Controls.Add(this.uc_student_information_list1);
+            this.Controls.Add(this.PanelMain);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -555,8 +554,8 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button5;
-        private student_information.uc_student_information_list uc_student_information_list1;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Panel PanelMain;
     }
 }

@@ -66,6 +66,34 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return yearLevel;
         }
 
+        public static YearLevel GetYearLevel(int YearLevelID)
+        {
+            YearLevel yearLevel = new YearLevel();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_settings_yearlevels WHERE YearLevelID = @YearLevelID", conn))
+                {
+                    comm.Parameters.AddWithValue("@YearLevelID", YearLevelID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            yearLevel = new YearLevel()
+                            {
+                                YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
+                                EducationLevel = Convert.ToString(reader["EducationLevel"]),
+                                YearLvl = Convert.ToString(reader["YearLevel"]),
+                                NextYearLvlID = Convert.ToInt32(reader["NextYearLevelID"])
+                            };
+                        }
+                    }
+                }
+            }
+            return yearLevel;
+        }
+
+
         public static List<Section> GetYearLevelSections(int YearLevelID)
         {
             List<Section> sections = new List<Section>();

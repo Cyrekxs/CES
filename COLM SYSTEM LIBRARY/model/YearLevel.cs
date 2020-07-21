@@ -24,6 +24,18 @@ namespace COLM_SYSTEM_LIBRARY.model
             return YearLevel_DS.GetYearLevel(EducationLevel, YearLevel);
         }
 
+        public static YearLevel GetYearLevel(int YearLevelID)
+        {
+            return YearLevel_DS.GetYearLevel(YearLevelID);
+        }
+
+        public static string GetEducationLevelByYearLevelID(int YearLevelID)
+        {
+            return (from r in YearLevel_DS.GetYearLevels()
+                    where r.YearLevelID == YearLevelID
+                    select r.EducationLevel).ToString();
+        }
+
         public static List<string> GetYearLevelsByEducationLevel(List<YearLevel> yearLevels, string EducationLevel)
         {
             return (from r in yearLevels
