@@ -26,6 +26,15 @@ namespace COLM_SYSTEM_LIBRARY.model
         {
             return (Fee_DS.GetFees());
         }
+        public static List<Fee> GetFees(int YearLevelID)
+        {
+            return (Fee_DS.GetFees(YearLevelID));
+        }
+
+        public static List<FeeSummary> GetFeeSummaries()
+        {
+            return Fee_DS.GetFeeSummaries();
+        }
 
         public static bool UpdateFee(Fee model)
         {

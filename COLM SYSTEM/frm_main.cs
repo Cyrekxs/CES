@@ -1,4 +1,5 @@
 ﻿using COLM_SYSTEM.Discounts;
+using COLM_SYSTEM.fees;
 using System;
 using System.Windows.Forms;
 
@@ -8,12 +9,16 @@ namespace COLM_SYSTEM
     {
         //#FF004000 metro studio color use for green
 
-        private void DisplayControl()
+        private void DisplayControl(UserControl uc)
         {
-            foreach (Control item in PanelMain.Controls)
+            //remove all user controls in panel main first before display new user control
+            foreach (UserControl item in PanelMain.Controls)
             {
-
+                PanelMain.Controls.Remove(item);
             }
+
+            uc.Dock = DockStyle.Fill;
+            PanelMain.Controls.Add(uc);
         }
 
         public frm_main()
@@ -28,9 +33,18 @@ namespace COLM_SYSTEM
 
         private void button7_Click(object sender, EventArgs e)
         {
-            uc_discount_list uc = new uc_discount_list();
-            uc.Dock = DockStyle.Fill;
-            PanelMain.Controls.Add(uc);
+            DisplayControl(new uc_discount_list());
+            //uc_discount_list uc = new uc_discount_list();
+            //uc.Dock = DockStyle.Fill;
+            //PanelMain.Controls.Add(uc);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            DisplayControl(new uc_fee_list());
+            //uc_fee_list uc = new uc_fee_list();
+            //uc.Dock = DockStyle.Fill;
+            //PanelMain.Controls.Add(uc);
         }
     }
 }

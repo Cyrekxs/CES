@@ -71,11 +71,17 @@
     <Compile Include="Discounts\uc_discount_list.Designer.cs">
       <DependentUpon>uc_discount_list.cs</DependentUpon>
     </Compile>
-    <Compile Include="fees\frm_fee_list.cs">
+    <Compile Include="fees\frm_settings_fee_list.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fees\frm_fee_list.Designer.cs">
-      <DependentUpon>frm_fee_list.cs</DependentUpon>
+    <Compile Include="fees\frm_settings_fee_list.Designer.cs">
+      <DependentUpon>frm_settings_fee_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fees\uc_fee_list.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="fees\uc_fee_list.Designer.cs">
+      <DependentUpon>uc_fee_list.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_main.cs">
       <SubType>Form</SubType>
@@ -152,8 +158,11 @@
     <EmbeddedResource Include="Discounts\uc_discount_list.resx">
       <DependentUpon>uc_discount_list.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fees\frm_fee_list.resx">
-      <DependentUpon>frm_fee_list.cs</DependentUpon>
+    <EmbeddedResource Include="fees\frm_settings_fee_list.resx">
+      <DependentUpon>frm_settings_fee_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fees\uc_fee_list.resx">
+      <DependentUpon>uc_fee_list.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_main.resx">
       <DependentUpon>frm_main.cs</DependentUpon>
@@ -246,6 +255,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Filter-Standard.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -40,6 +40,66 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return fees;
         }
 
+        public static List<Fee> GetFees(int YearLevelID)
+        {
+            List<Fee> fees = new List<Fee>();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_settings_fees WHERE YearLevelID = @YearLevelID", conn))
+                {
+                    comm.Parameters.AddWithValue("@YearLevelID", YearLevelID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Fee fee = new Fee()
+                            {
+                                FeeID = Convert.ToInt32(reader["FeeID"]),
+                                FeeDesc = Convert.ToString(reader["Fee"]),
+                                FeeType = Convert.ToString(reader["Type"]),
+                                YearLeveLID = Convert.ToInt16(reader["YearLevelID"]),
+                                Amount = Convert.ToDouble(reader["Amount"]),
+                                SchoolYearID = Convert.ToInt32(reader["SchoolYearID"])
+                            };
+                            fees.Add(fee);
+                        }
+                    }
+                }
+            }
+            return fees;
+        }
+
+        public static List<FeeSummary> GetFeeSummaries()
+        {
+            List<FeeSummary> feeSummaries = new List<FeeSummary>();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_Fee_Summary(@SchoolYearID)", conn))
+                {
+                    comm.Parameters.AddWithValue("@SchoolYearID", Utilities.GetActiveSchoolYear());
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            FeeSummary feeSummary = new FeeSummary()
+                            {
+                                EducationLevel = Convert.ToString(reader["EducationLevel"]),
+                                YearLevel = Convert.ToString(reader["YearLevel"]),
+                                TotalTFee = Convert.ToDouble(reader["Total_TFee"]),
+                                TotalMFee = Convert.ToDouble(reader["Total_MFee"]),
+                                TotalOFee = Convert.ToDouble(reader["Total_OFee"]),
+                                TotalAFee = Convert.ToDouble(reader["Total_AFee"])
+                            };
+                            feeSummaries.Add(feeSummary);
+                        }
+                    }
+                }
+            }
+            return feeSummaries;
+        }
+
         public static List<Fee> GetFeesByType(Enums.FeeTypes type)
         {
             List<Fee> fees = new List<Fee>();

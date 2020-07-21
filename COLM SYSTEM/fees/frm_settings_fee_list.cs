@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace COLM_SYSTEM.fees
 {
-    public partial class frm_fee_list : Form
+    public partial class frm_settings_fee_list : Form
     {
-        public frm_fee_list()
+        public frm_settings_fee_list()
         {
             InitializeComponent();
         }

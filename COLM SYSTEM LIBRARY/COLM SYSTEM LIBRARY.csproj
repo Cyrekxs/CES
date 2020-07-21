@@ -51,11 +51,13 @@
     <Compile Include="helper\Connection.cs" />
     <Compile Include="helper\Enums.cs" />
     <Compile Include="helper\Globals.cs" />
+    <Compile Include="helper\Utilities.cs" />
     <Compile Include="model\Address.cs" />
     <Compile Include="model\AssessmentType.cs" />
     <Compile Include="model\AssessmentTypeItem.cs" />
     <Compile Include="model\Discount.cs" />
     <Compile Include="model\Fee.cs" />
+    <Compile Include="model\FeeSummary.cs" />
     <Compile Include="model\Section.cs" />
     <Compile Include="model\StudentRegistered.cs" />
     <Compile Include="model\StudentGuardian.cs" />
