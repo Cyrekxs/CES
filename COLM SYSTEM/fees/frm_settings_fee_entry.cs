@@ -74,17 +74,25 @@ namespace COLM_SYSTEM
             return result;
         }
 
+        private string FormatFeeType(string FeeType)
+        {
+            if (FeeType.ToLower() == "tuition fee")
+                return "TFEE";
+            else if (FeeType.ToLower() == "miscellaneous fee")
+                return "MFEE";
+            else if (FeeType.ToLower() == "other fee")
+                return "OFEE";
+            else if (FeeType.ToLower() == "additional fee")
+                return "AFEE";
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-
-
             if (HasError() == true)
             {
                 MessageBox.Show("Errors detected!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-
             Fee fee = new Fee();
             fee.FeeDesc = txtFee.Text;
             fee.FeeType = cmbFeeType.Text;

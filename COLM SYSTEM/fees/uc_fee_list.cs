@@ -64,12 +64,17 @@ namespace COLM_SYSTEM.fees
         {
             List<Fee> fees = dgBreakdown.Tag as List<Fee>;
             dgBreakdown.Rows.Clear();
+            double totalamount = 0;
+
             if (FeeType != "ALL")
             {
                 foreach (var item in fees)
                 {
                     if (item.FeeType == FeeType)
+                    {
                         dgBreakdown.Rows.Add(item.FeeID, item.FeeDesc, item.FeeType, item.Amount.ToString("n"));
+                        totalamount += item.Amount;
+                    }
                 }
             }
             else
@@ -77,9 +82,19 @@ namespace COLM_SYSTEM.fees
                 foreach (var item in fees)
                 {
                     dgBreakdown.Rows.Add(item.FeeID, item.FeeDesc, item.FeeType, item.Amount.ToString("n"));
+                    totalamount += item.Amount;
                 }
             }
 
+            txtTotal.Text = totalamount.ToString("n");
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frm_settings_fee_entry frm = new frm_settings_fee_entry();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog();
         }
     }
 }

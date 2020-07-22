@@ -113,7 +113,7 @@
             this.cmbFeeType.Items.AddRange(new object[] {
             "TUITION FEE",
             "MISCELLANEOUS FEE",
-            "OTHER FEES",
+            "OTHER FEE",
             "ADDITIONAL FEE"});
             this.cmbFeeType.Location = new System.Drawing.Point(15, 112);
             this.cmbFeeType.Name = "cmbFeeType";

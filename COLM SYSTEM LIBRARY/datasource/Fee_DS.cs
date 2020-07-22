@@ -148,12 +148,12 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("INSERT INTO tbl_settings_fees VALUES (@Fee,@Type,@Amount,@EducationLevel,@YearLevel,@SchoolYearID,GETDATE())", conn))
+                using (SqlCommand comm = new SqlCommand("INSERT INTO tbl_settings_fees VALUES (@Fee,@Type,@Amount,@YearLevelID,@SchoolYearID,GETDATE())", conn))
                 {
                     comm.Parameters.AddWithValue("@Fee", model.FeeDesc);
                     comm.Parameters.AddWithValue("@Type", model.FeeType);
                     comm.Parameters.AddWithValue("@amount", model.Amount);
-                    comm.Parameters.AddWithValue("@YearLevel", model.YearLeveLID);
+                    comm.Parameters.AddWithValue("@YearLevelID", model.YearLeveLID);
                     comm.Parameters.AddWithValue("@SchoolYearID", model.SchoolYearID);
                     result = comm.ExecuteNonQuery();
                     if (result > 0)
