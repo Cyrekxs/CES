@@ -70,6 +70,35 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return fees;
         }
 
+        public static Fee GetFee(int FeeID)
+        {
+            Fee fee = new Fee();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_settings_fees WHERE FeeID = @FeeID", conn))
+                {
+                    comm.Parameters.AddWithValue("@FeeID", FeeID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            fee = new Fee()
+                            {
+                                FeeID = Convert.ToInt32(reader["FeeID"]),
+                                FeeDesc = Convert.ToString(reader["Fee"]),
+                                FeeType = Convert.ToString(reader["Type"]),
+                                YearLeveLID = Convert.ToInt16(reader["YearLevelID"]),
+                                Amount = Convert.ToDouble(reader["Amount"]),
+                                SchoolYearID = Convert.ToInt32(reader["SchoolYearID"])
+                            };
+                        }
+                    }
+                }
+            }
+            return fee;
+        }
+
         public static List<FeeSummary> GetFeeSummaries()
         {
             List<FeeSummary> feeSummaries = new List<FeeSummary>();
@@ -170,13 +199,13 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("UPDATE tbl_settings_fees SET Fee = @Fee, Type = @Type, Amount = @Amount, EducationLevel = @EducationLevel, YearLevel = @YearLevel WHERE FeeID = @FeeID", conn))
+                using (SqlCommand comm = new SqlCommand("UPDATE tbl_settings_fees SET Fee = @Fee, Type = @Type, Amount = @Amount, YearLevelID = @YearLevelID WHERE FeeID = @FeeID", conn))
                 {
                     comm.Parameters.AddWithValue("@FeeID", model.FeeID);
                     comm.Parameters.AddWithValue("@Fee", model.FeeDesc);
                     comm.Parameters.AddWithValue("@Type", model.FeeType);
                     comm.Parameters.AddWithValue("@amount", model.Amount);
-                    comm.Parameters.AddWithValue("@YearLevel", model.YearLeveLID);
+                    comm.Parameters.AddWithValue("@YearLevelID", model.YearLeveLID);
                     comm.Parameters.AddWithValue("@SchoolYearID", model.SchoolYearID);
                     result = comm.ExecuteNonQuery();
                     if (result > 0)

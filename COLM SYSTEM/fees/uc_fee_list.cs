@@ -96,5 +96,17 @@ namespace COLM_SYSTEM.fees
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.ShowDialog();
         }
+
+        private void dgBreakdown_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int FeeID = Convert.ToInt16(dgBreakdown.Rows[e.RowIndex].Cells[0].Value);
+            Fee fee = Fee.GetFee(FeeID);
+            if (e.ColumnIndex == clmEditFee.Index)
+            {
+                frm_settings_fee_entry frm = new frm_settings_fee_entry(fee);
+                frm.StartPosition = FormStartPosition.CenterScreen;
+                frm.ShowDialog();
+            }
+        }
     }
 }

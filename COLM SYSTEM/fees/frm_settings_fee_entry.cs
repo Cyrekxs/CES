@@ -13,11 +13,14 @@ namespace COLM_SYSTEM
         public frm_settings_fee_entry()
         {
             InitializeComponent();
+            savingstatus = SavingOptions.INSERT;
         }
 
         public frm_settings_fee_entry(Fee fee)
         {
             InitializeComponent();
+            savingstatus = SavingOptions.UPDATE;
+
             _Fee = fee;
             YearLevel yearLevel = YearLevel.GetYearLevel(fee.YearLeveLID);
 
@@ -84,6 +87,8 @@ namespace COLM_SYSTEM
                 return "OFEE";
             else if (FeeType.ToLower() == "additional fee")
                 return "AFEE";
+            else
+                return "";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -93,12 +98,12 @@ namespace COLM_SYSTEM
                 MessageBox.Show("Errors detected!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
             Fee fee = new Fee();
             fee.FeeDesc = txtFee.Text;
-            fee.FeeType = cmbFeeType.Text;
+            fee.FeeType = FormatFeeType(cmbFeeType.Text);
             fee.YearLeveLID = YearLevel.GetYearLevel(cmbEducationLevel.Text, cmbYearLevel.Text).YearLevelID;
             fee.Amount = Convert.ToDouble(txtFeeAmount.Text);
-
 
             bool result = false;
 
@@ -109,7 +114,6 @@ namespace COLM_SYSTEM
                 fee.FeeID = _Fee.FeeID;
                 result = Fee.UpdateFee(fee);
             }
-
 
             if (result == true)
                 MessageBox.Show("Fee has been successfully saved!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
