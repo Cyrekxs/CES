@@ -17,7 +17,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_settings_yearlevels ORDER BY YearLevelID ASC", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.yearlevels ORDER BY YearLevelID ASC", conn))
                 {
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
@@ -38,13 +38,33 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return yearLevels;
         }
 
+        public static List<string> GetEducationLevels()
+        {
+            List<string> EducationLevels = new List<string>();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_educationlevels()", conn))
+                {
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            EducationLevels.Add(reader["EducationLevel"].ToString());
+                        }
+                    }
+                }
+            }
+            return EducationLevels;
+        }
+
         public static YearLevel GetYearLevel(string EducationLevel,string YearLevel)
         {
             YearLevel yearLevel = new YearLevel();
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_settings_yearlevels WHERE EducationLevel = @EducationLevel AND Yearlevel = @YearLevel", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.yearlevels WHERE EducationLevel = @EducationLevel AND Yearlevel = @YearLevel", conn))
                 {
                     comm.Parameters.AddWithValue("@EducationLevel", EducationLevel);
                     comm.Parameters.AddWithValue("@YearLevel", YearLevel);
@@ -72,7 +92,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_settings_yearlevels WHERE YearLevelID = @YearLevelID", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.yearlevels WHERE YearLevelID = @YearLevelID", conn))
                 {
                     comm.Parameters.AddWithValue("@YearLevelID", YearLevelID);
                     using (SqlDataReader reader = comm.ExecuteReader())
@@ -93,14 +113,13 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return yearLevel;
         }
 
-
         public static List<Section> GetYearLevelSections(int YearLevelID)
         {
             List<Section> sections = new List<Section>();
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_settings_yearlevel_sections WHERE YearLevelID = @YearLevelID ORDER BY Section ASC", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.yearlevel_sections WHERE YearLevelID = @YearLevelID ORDER BY Section ASC", conn))
                 {
                     comm.Parameters.AddWithValue("@YearLevelID", YearLevelID);
                     using (SqlDataReader reader = comm.ExecuteReader())

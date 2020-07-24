@@ -13,8 +13,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string DiscountCode { get; set; }
         public string Type { get; set; }
         public int YearLeveLID { get; set; }
-        public double Value { get; set; }
-        public bool IsCustomizeComputation { get; set; }
+        public double TotalValue { get; set; }
         public double TFee { get; set; }
         public double MFee { get; set; }
         public double OFee { get; set; }
@@ -31,16 +30,10 @@ namespace COLM_SYSTEM_LIBRARY.model
             return Discount_DS.GetDiscount(DiscountID);
         }
 
-        public static bool InsertDiscount(Discount discount)
+        public static bool InsertUpdateDiscount(Discount discount)
         {
-            return Discount_DS.InsertDiscount(discount);
+            return Discount_DS.InsertUpdateDiscount(discount);
         }
-
-        public static bool UpdateDiscount(Discount discount)
-        {
-            return Discount_DS.UpdateDiscount(discount);
-        }
-
 
     }
 }

@@ -16,7 +16,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_settings_discounts ORDER BY DateCreated ASC", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.discounts ORDER BY DateCreated ASC", conn))
                 {
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
@@ -28,8 +28,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 DiscountCode = Convert.ToString(reader["Discount"]),
                                 YearLeveLID = Convert.ToInt16(reader["YearLevelID"]),
                                 Type = Convert.ToString(reader["Type"]),
-                                Value = Convert.ToDouble(reader["Value"]),
-                                IsCustomizeComputation = Convert.ToBoolean(reader["IsCustomizeComputation"]),
+                                TotalValue = Convert.ToDouble(reader["TotalValue"]),
                                 TFee = Convert.ToDouble(reader["TFee"]),
                                 MFee = Convert.ToDouble(reader["MFee"]),
                                 OFee = Convert.ToDouble(reader["OFee"]),
@@ -50,7 +49,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_settings_discounts WHERE DiscountID = @DiscountID ORDER BY DateCreated ASC", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.discounts WHERE DiscountID = @DiscountID ORDER BY DateCreated ASC", conn))
                 {
                     comm.Parameters.AddWithValue("@DiscountID", DiscountID);
                     using (SqlDataReader reader = comm.ExecuteReader())
@@ -63,8 +62,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 DiscountCode = Convert.ToString(reader["Discount"]),
                                 YearLeveLID = Convert.ToInt16(reader["YearLevelID"]),
                                 Type = Convert.ToString(reader["Type"]),
-                                Value = Convert.ToDouble(reader["Value"]),
-                                IsCustomizeComputation = Convert.ToBoolean(reader["IsCustomizeComputation"]),
+                                TotalValue = Convert.ToDouble(reader["TotalValue"]),
                                 TFee = Convert.ToDouble(reader["TFee"]),
                                 MFee = Convert.ToDouble(reader["MFee"]),
                                 OFee = Convert.ToDouble(reader["OFee"]),
@@ -78,45 +76,22 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return discount;
         }
 
-        public static bool InsertDiscount(Discount model)
+        public static bool InsertUpdateDiscount(Discount model)
         {
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("INSERT INTO tbl_settings_discounts VALUES (@YearLevelID,@DiscountCode,@Type,@Value,@IsCustomize,@TFee,@MFee,@OFee,@SchoolYearID,GETDATE())", conn))
+                using (SqlCommand comm = new SqlCommand("EXECUTE dbo.sp_set_discount @DiscountID,@YearLevelID,@DiscountCode,@Type,@Value,@TFee,@MFee,@OFee,@SchoolYearID", conn))
                 {
+                    comm.Parameters.AddWithValue("@DiscountID", model.DiscountID);
                     comm.Parameters.AddWithValue("@YearLevelID", model.YearLeveLID);
                     comm.Parameters.AddWithValue("@DiscountCode", model.DiscountCode);
                     comm.Parameters.AddWithValue("@Type", model.Type);
-                    comm.Parameters.AddWithValue("@Value", model.Value);
-                    comm.Parameters.AddWithValue("@IsCustomize", model.IsCustomizeComputation);
+                    comm.Parameters.AddWithValue("@Value", model.TotalValue);
                     comm.Parameters.AddWithValue("@TFee", model.TFee);
                     comm.Parameters.AddWithValue("@MFee", model.MFee);
                     comm.Parameters.AddWithValue("@OFee", model.OFee);
                     comm.Parameters.AddWithValue("@SchoolYearID", model.SchoolYearID);
-                    if (comm.ExecuteNonQuery() > 0)
-                        return true;
-                    else
-                        return false;
-                }
-            }
-        }
-
-        public static bool UpdateDiscount(Discount model)
-        {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
-            {
-                conn.Open();
-                using (SqlCommand comm = new SqlCommand("UPDATE tbl_settings_discounts SET Discount = @DiscountCode, Type = @Type, Value = @Value,IsCustomizeComputation = @IsCustomize, TFee = @TFee, MFee = @MFee, OFee = @OFee WHERE DiscountID = @DiscountID", conn))
-                {
-                    comm.Parameters.AddWithValue("@DiscountID", model.DiscountID);
-                    comm.Parameters.AddWithValue("@DiscountCode", model.DiscountCode);
-                    comm.Parameters.AddWithValue("@Type", model.Type);
-                    comm.Parameters.AddWithValue("@Value", model.Value);
-                    comm.Parameters.AddWithValue("@IsCustomize", model.IsCustomizeComputation);
-                    comm.Parameters.AddWithValue("@TFee", model.TFee);
-                    comm.Parameters.AddWithValue("@MFee", model.MFee);
-                    comm.Parameters.AddWithValue("@OFee", model.OFee);
                     if (comm.ExecuteNonQuery() > 0)
                         return true;
                     else

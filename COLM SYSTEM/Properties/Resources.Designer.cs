@@ -103,6 +103,26 @@ namespace COLM_SYSTEM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Data_Edit {
+            get {
+                object obj = ResourceManager.GetObject("Data_Edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Data_Information {
+            get {
+                object obj = ResourceManager.GetObject("Data_Information", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Filter {
             get {
                 object obj = ResourceManager.GetObject("Filter", resourceCulture);
@@ -116,6 +136,16 @@ namespace COLM_SYSTEM.Properties {
         internal static System.Drawing.Bitmap Filter_Standard {
             get {
                 object obj = ResourceManager.GetObject("Filter_Standard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Garbage {
+            get {
+                object obj = ResourceManager.GetObject("Garbage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -156,6 +186,16 @@ namespace COLM_SYSTEM.Properties {
         internal static System.Drawing.Bitmap Search {
             get {
                 object obj = ResourceManager.GetObject("Search", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Settings_02 {
+            get {
+                object obj = ResourceManager.GetObject("Settings_02", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

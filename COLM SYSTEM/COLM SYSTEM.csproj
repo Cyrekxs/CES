@@ -53,29 +53,35 @@
     <Compile Include="assessment\frm_assessment.Designer.cs">
       <DependentUpon>frm_assessment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Curriculum\frm_curriculum_entry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Curriculum\frm_curriculum_entry.Designer.cs">
+      <DependentUpon>frm_curriculum_entry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard\UC_DashBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Dashboard\UC_DashBoard.Designer.cs">
       <DependentUpon>UC_DashBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Discounts\frm_discount_entry.cs">
+    <Compile Include="Discounts\frm_discount_entry_amount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Discounts\frm_discount_entry.Designer.cs">
-      <DependentUpon>frm_discount_entry.cs</DependentUpon>
+    <Compile Include="Discounts\frm_discount_entry_amount.Designer.cs">
+      <DependentUpon>frm_discount_entry_amount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Discounts\frm_discount_entry_percentage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Discounts\frm_discount_entry_percentage.Designer.cs">
+      <DependentUpon>frm_discount_entry_percentage.cs</DependentUpon>
     </Compile>
     <Compile Include="Discounts\uc_discount_list.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Discounts\uc_discount_list.Designer.cs">
       <DependentUpon>uc_discount_list.cs</DependentUpon>
-    </Compile>
-    <Compile Include="fees\frm_settings_fee_list.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fees\frm_settings_fee_list.Designer.cs">
-      <DependentUpon>frm_settings_fee_list.cs</DependentUpon>
     </Compile>
     <Compile Include="fees\uc_fee_list.cs">
       <SubType>UserControl</SubType>
@@ -100,6 +106,24 @@
     </Compile>
     <Compile Include="student information\uc_student_information_list.Designer.cs">
       <DependentUpon>uc_student_information_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subject\frm_subject_entry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="subject\frm_subject_entry.Designer.cs">
+      <DependentUpon>frm_subject_entry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subject\uc_subject_list.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="subject\uc_subject_list.Designer.cs">
+      <DependentUpon>uc_subject_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uc_assessment_lists.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_assessment_lists.Designer.cs">
+      <DependentUpon>uc_assessment_lists.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilties.cs" />
     <Compile Include="Program.cs" />
@@ -152,14 +176,14 @@
     <EmbeddedResource Include="Dashboard\UC_DashBoard.resx">
       <DependentUpon>UC_DashBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Discounts\frm_discount_entry.resx">
-      <DependentUpon>frm_discount_entry.cs</DependentUpon>
+    <EmbeddedResource Include="Discounts\frm_discount_entry_amount.resx">
+      <DependentUpon>frm_discount_entry_amount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Discounts\frm_discount_entry_percentage.resx">
+      <DependentUpon>frm_discount_entry_percentage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Discounts\uc_discount_list.resx">
       <DependentUpon>uc_discount_list.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="fees\frm_settings_fee_list.resx">
-      <DependentUpon>frm_settings_fee_list.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fees\uc_fee_list.resx">
       <DependentUpon>uc_fee_list.cs</DependentUpon>
@@ -203,6 +227,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="student information\uc_student_information_list.resx">
       <DependentUpon>uc_student_information_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subject\frm_subject_entry.resx">
+      <DependentUpon>frm_subject_entry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subject\uc_subject_list.resx">
+      <DependentUpon>uc_subject_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_assessment_lists.resx">
+      <DependentUpon>uc_assessment_lists.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -261,6 +294,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Filter-Standard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wrench.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings-02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Data-Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Data-Information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Garbage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

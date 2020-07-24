@@ -52,6 +52,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.PanelMain = new System.Windows.Forms.Panel();
+            this.button10 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -271,6 +272,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.panel3.Controls.Add(this.button10);
             this.panel3.Controls.Add(this.button8);
             this.panel3.Controls.Add(this.button7);
             this.panel3.Controls.Add(this.label18);
@@ -353,6 +355,23 @@
             this.PanelMain.Name = "PanelMain";
             this.PanelMain.Size = new System.Drawing.Size(918, 646);
             this.PanelMain.TabIndex = 9;
+            // 
+            // button10
+            // 
+            this.button10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Font = new System.Drawing.Font("Source Sans Pro SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.ForeColor = System.Drawing.Color.White;
+            this.button10.Image = global::COLM_SYSTEM.Properties.Resources.Information;
+            this.button10.Location = new System.Drawing.Point(0, 556);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(142, 67);
+            this.button10.TabIndex = 21;
+            this.button10.Text = "SUBJECTS";
+            this.button10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button8
             // 
@@ -488,7 +507,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::COLM_SYSTEM.Properties.Resources.colm_logo;
-            this.pictureBox1.Location = new System.Drawing.Point(7, 13);
+            this.pictureBox1.Location = new System.Drawing.Point(13, 13);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(41, 36);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -577,5 +596,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Panel PanelMain;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button10;
     }
 }

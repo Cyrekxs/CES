@@ -1,15 +1,14 @@
 ﻿using COLM_SYSTEM_LIBRARY.model;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
-using static COLM_SYSTEM_LIBRARY.helper.Enums;
 
 namespace COLM_SYSTEM
 {
     public partial class frm_settings_fee_entry : Form
     {
-        private SavingOptions savingstatus = new SavingOptions();
         private Fee _Fee = new Fee();
-
+        private List<string> EducationLevels = YearLevel.GetEducationLevels();
         public frm_settings_fee_entry()
         {
             InitializeComponent();
@@ -18,6 +17,7 @@ namespace COLM_SYSTEM
         public frm_settings_fee_entry(Fee fee)
         {
             InitializeComponent();
+
             _Fee = fee;
             YearLevel yearLevel = YearLevel.GetYearLevel(fee.YearLeveLID);
 
@@ -26,6 +26,15 @@ namespace COLM_SYSTEM
             cmbFeeType.Text = fee.FeeType;
             cmbEducationLevel.Text = yearLevel.EducationLevel;
             cmbYearLevel.Text = yearLevel.YearLvl;
+        }
+
+        private void LoadEducationLevels()
+        {
+            cmbEducationLevel.Items.Clear();
+            foreach (var item in EducationLevels)
+            {
+                cmbEducationLevel.Items.Add(item);
+            }
         }
 
         private void CheckErrors()
@@ -74,18 +83,6 @@ namespace COLM_SYSTEM
             return result;
         }
 
-        private string FormatFeeType(string FeeType)
-        {
-            if (FeeType.ToLower() == "tuition fee")
-                return "TFEE";
-            else if (FeeType.ToLower() == "miscellaneous fee")
-                return "MFEE";
-            else if (FeeType.ToLower() == "other fee")
-                return "OFEE";
-            else if (FeeType.ToLower() == "additional fee")
-                return "AFEE";
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (HasError() == true)
@@ -93,28 +90,39 @@ namespace COLM_SYSTEM
                 MessageBox.Show("Errors detected!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
             Fee fee = new Fee();
+            fee.FeeID = _Fee.FeeID;
             fee.FeeDesc = txtFee.Text;
             fee.FeeType = cmbFeeType.Text;
             fee.YearLeveLID = YearLevel.GetYearLevel(cmbEducationLevel.Text, cmbYearLevel.Text).YearLevelID;
             fee.Amount = Convert.ToDouble(txtFeeAmount.Text);
-
+            fee.SchoolYearID = Utilties.GetActiveSchoolYear();
+            fee.SemesterID = Utilties.GetActiveSemester();
 
             bool result = false;
-
-            if (savingstatus == SavingOptions.INSERT)
-                result = Fee.InsertFee(fee);
-            else
-            {
-                fee.FeeID = _Fee.FeeID;
-                result = Fee.UpdateFee(fee);
-            }
-
+            result = Fee.InsertUpdateFee(fee);
 
             if (result == true)
                 MessageBox.Show("Fee has been successfully saved!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show("Fee saving failed!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void cmbEducationLevel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<YearLevel> YearLevels = YearLevel.GetYearLevelsByEducationLevel(cmbEducationLevel.Text);
+            cmbYearLevel.Items.Clear();
+            foreach (var item in YearLevels)
+            {
+                cmbYearLevel.Items.Add(item.YearLvl);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Close();
+            Dispose();
         }
     }
 }

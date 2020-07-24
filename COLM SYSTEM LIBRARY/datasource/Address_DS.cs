@@ -14,7 +14,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_settings_addresses ORDER BY Province,City,Barangay ASC", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.addresses ORDER BY Province,City,Barangay ASC", conn))
                 {
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {

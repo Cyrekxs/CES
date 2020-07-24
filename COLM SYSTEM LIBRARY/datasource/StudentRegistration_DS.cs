@@ -49,7 +49,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_student_registered WHERE RegisteredStudentID = @RegisteredStudentID", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM student.registered WHERE RegisteredStudentID = @RegisteredStudentID", conn))
                 {
                     comm.Parameters.AddWithValue("@RegisteredStudentID", RegisteredStudentID);
                     using (SqlDataReader reader = comm.ExecuteReader())
@@ -80,7 +80,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             {
                 conn.Open();
 
-                using (SqlCommand comm_verify = new SqlCommand("SELECT * FROM tbl_student_registered WHERE StudentID = @StudentID AND SchoolYearID = @SchoolYearID", conn))
+                using (SqlCommand comm_verify = new SqlCommand("SELECT * FROM student.registered WHERE StudentID = @StudentID AND SchoolYearID = @SchoolYearID", conn))
                 {
                     comm_verify.Parameters.AddWithValue("@StudentID", model.StudentID);
                     comm_verify.Parameters.AddWithValue("@SchoolYearID", model.SchoolYearID);
@@ -96,7 +96,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
                 if (HasRecord == false)
                 {
-                    using (SqlCommand comm = new SqlCommand("INSERT INTO tbl_student_registered VALUES (@StudentID,@YearLevelID,@SectionID,@SchoolYearID,GETDATE())", conn))
+                    using (SqlCommand comm = new SqlCommand("INSERT INTO student.registered VALUES (@StudentID,@YearLevelID,@SectionID,@SchoolYearID,GETDATE())", conn))
                     {
                         comm.Parameters.AddWithValue("@StudentID", model.StudentID);
                         comm.Parameters.AddWithValue("@YearLevelID", model.YearLevelID);
@@ -118,7 +118,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("UPDATE tbl_student_registered SET YearLevelID = @YearLevelID, SectionID = @SectionID, WHERE RegisteredStudentID = @RegisteredStudentID", conn))
+                using (SqlCommand comm = new SqlCommand("UPDATE student.registered SET YearLevelID = @YearLevelID, SectionID = @SectionID, WHERE RegisteredStudentID = @RegisteredStudentID", conn))
                 {
                     comm.Parameters.AddWithValue("@RegisteredStudentID", model.RegisteredStudentID);
                     comm.Parameters.AddWithValue("@StudentID", model.StudentID);

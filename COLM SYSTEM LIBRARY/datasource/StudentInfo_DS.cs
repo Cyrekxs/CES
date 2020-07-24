@@ -16,7 +16,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_student_information ORDER BY Lastname,Firstname ASC", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM student.information ORDER BY Lastname,Firstname ASC", conn))
                 {
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
@@ -54,7 +54,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_student_information WHERE StudentID = @StudentID ORDER BY Lastname,Firstname ASC", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM student.information WHERE StudentID = @StudentID ORDER BY Lastname,Firstname ASC", conn))
                 {
                     comm.Parameters.AddWithValue("@StudentID", StudentID);
                     using (SqlDataReader reader = comm.ExecuteReader())
@@ -121,7 +121,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("UPDATE tbl_student_information SET LRN =  @LRN, Lastname = @Lastname, Firstname = @Firstname, Middlename = @Middlename, Extensionname = @ExtensionName, BirthDate = @BirthDate, BirthPlace = @BirthPlace, Gender = @Gender, Street = @Street, Barangay = @Barangay, City = @City, Province = @Province, MobileNo = @MobileNo, EmailAddress = @EmailAddress WHERE StudentID = @StudentID", conn))
+                using (SqlCommand comm = new SqlCommand("UPDATE student.information SET LRN =  @LRN, Lastname = @Lastname, Firstname = @Firstname, Middlename = @Middlename, Extensionname = @ExtensionName, BirthDate = @BirthDate, BirthPlace = @BirthPlace, Gender = @Gender, Street = @Street, Barangay = @Barangay, City = @City, Province = @Province, MobileNo = @MobileNo, EmailAddress = @EmailAddress WHERE StudentID = @StudentID", conn))
                 {
                     comm.Parameters.AddWithValue("@StudentID", model.StudentID);
                     comm.Parameters.AddWithValue("@LRN", model.LRN);
@@ -152,7 +152,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_student_information_guardian ORDER BY StudentID ASC", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM student.information_guardian ORDER BY StudentID ASC", conn))
                 {
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
@@ -182,7 +182,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_student_information_guardian WHERE StudentID = @StudentID", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM student.information_guardian WHERE StudentID = @StudentID", conn))
                 {
                     comm.Parameters.AddWithValue("@StudentID", StudentID);
                     using (SqlDataReader reader = comm.ExecuteReader())
@@ -212,7 +212,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("INSERT INTO tbl_student_information_guardian VALUES (@StudentID,@MotherName,@MotherMobile,@FatherName,@FatherMobile,@GuardianName,@GuardianMobile,@GuardianRelation)", conn))
+                using (SqlCommand comm = new SqlCommand("INSERT INTO student.information_guardian VALUES (@StudentID,@MotherName,@MotherMobile,@FatherName,@FatherMobile,@GuardianName,@GuardianMobile,@GuardianRelation)", conn))
                 {
                     comm.Parameters.AddWithValue("@StudentID", model.StudentID);
                     comm.Parameters.AddWithValue("@MotherName", model.MotherName);
@@ -235,7 +235,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("UPDATE tbl_student_information_guardian SET MotherName = @MotherName, MotherMobile = @MotherMobile, FatherName = @FatherName, FatherMobile = @FatherMobile, GuardianName = @GuardianName, GuardianMobile = @GuardianMobile, GuardianRelation = @GuardianRelation WHERE StudentGuardianID = @StudentGuardianID", conn))
+                using (SqlCommand comm = new SqlCommand("UPDATE student.information_guardian SET MotherName = @MotherName, MotherMobile = @MotherMobile, FatherName = @FatherName, FatherMobile = @FatherMobile, GuardianName = @GuardianName, GuardianMobile = @GuardianMobile, GuardianRelation = @GuardianRelation WHERE StudentGuardianID = @StudentGuardianID", conn))
                 {
                     comm.Parameters.AddWithValue("@StudentGuardianID", model.StudentGuardianID);
 

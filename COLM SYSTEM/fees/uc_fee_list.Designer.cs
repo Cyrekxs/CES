@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -50,14 +51,15 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.dgBreakdown = new System.Windows.Forms.DataGridView();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.clmEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -67,9 +69,12 @@
             this.txtEducationLevel = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtTotal = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.cm_actions = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSummary)).BeginInit();
             this.panel4.SuspendLayout();
@@ -78,6 +83,7 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
+            this.cm_actions.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -225,6 +231,27 @@
             this.panel1.Size = new System.Drawing.Size(455, 538);
             this.panel1.TabIndex = 6;
             // 
+            // txtTotal
+            // 
+            this.txtTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTotal.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Location = new System.Drawing.Point(351, 509);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
+            this.txtTotal.Size = new System.Drawing.Size(100, 24);
+            this.txtTotal.TabIndex = 17;
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(302, 512);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 17);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "TOTAL";
+            // 
             // dgBreakdown
             // 
             this.dgBreakdown.AllowUserToAddRows = false;
@@ -242,7 +269,7 @@
             this.Column7,
             this.Column9,
             this.Column10,
-            this.Column11});
+            this.clmEdit});
             dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle21.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -263,6 +290,7 @@
             this.dgBreakdown.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgBreakdown.Size = new System.Drawing.Size(445, 416);
             this.dgBreakdown.TabIndex = 15;
+            this.dgBreakdown.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgBreakdown_CellContentClick_1);
             // 
             // Column3
             // 
@@ -296,43 +324,25 @@
             this.Column10.ReadOnly = true;
             this.Column10.Width = 81;
             // 
-            // Column11
+            // clmEdit
             // 
-            this.Column11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Column11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Column11.HeaderText = "EDIT";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.Text = "EDIT";
-            this.Column11.UseColumnTextForButtonValue = true;
-            this.Column11.Width = 39;
+            this.clmEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.clmEdit.HeaderText = "ACTION";
+            this.clmEdit.Image = global::COLM_SYSTEM.Properties.Resources.Data_Information;
+            this.clmEdit.Name = "clmEdit";
+            this.clmEdit.ReadOnly = true;
+            this.clmEdit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmEdit.Width = 55;
             // 
             // panel5
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.button1);
             this.panel5.Controls.Add(this.label6);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(455, 36);
             this.panel5.TabIndex = 14;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.button1.Location = new System.Drawing.Point(374, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(76, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "+ ADD FEE";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label6
             // 
@@ -418,12 +428,29 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(10, 10);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1154, 34);
             this.panel3.TabIndex = 3;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.SlateGray;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(1050, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "+ NEW FEE";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -436,26 +463,40 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "FEE LISTS";
             // 
-            // txtTotal
+            // cm_actions
             // 
-            this.txtTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTotal.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(351, 511);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.ReadOnly = true;
-            this.txtTotal.Size = new System.Drawing.Size(100, 24);
-            this.txtTotal.TabIndex = 17;
-            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.cm_actions.ImageScalingSize = new System.Drawing.Size(15, 15);
+            this.cm_actions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripSeparator2,
+            this.toolStripMenuItem2});
+            this.cm_actions.Name = "cm_discount";
+            this.cm_actions.Size = new System.Drawing.Size(108, 54);
             // 
-            // label7
+            // toolStripMenuItem1
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(302, 514);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(43, 17);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "TOTAL";
+            this.toolStripMenuItem1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.toolStripMenuItem1.Image = global::COLM_SYSTEM.Properties.Resources.Data_Edit;
+            this.toolStripMenuItem1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
+            this.toolStripMenuItem1.Text = "Edit";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(104, 6);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripMenuItem2.ForeColor = System.Drawing.Color.IndianRed;
+            this.toolStripMenuItem2.Image = global::COLM_SYSTEM.Properties.Resources.Garbage;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(107, 22);
+            this.toolStripMenuItem2.Text = "Delete";
             // 
             // uc_fee_list
             // 
@@ -478,6 +519,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.cm_actions.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -508,12 +550,16 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dgBreakdown;
+        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ContextMenuStrip cm_actions;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewButtonColumn Column11;
-        private System.Windows.Forms.TextBox txtTotal;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewImageColumn clmEdit;
     }
 }

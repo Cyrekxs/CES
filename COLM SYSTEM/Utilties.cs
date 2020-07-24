@@ -8,14 +8,17 @@ namespace COLM_SYSTEM
 {
     public class Utilties
     {
-        public static string ConvertToCurrency(double value)
-        {
-            return value.ToString("c");
-        }
 
         public static int GetActiveSchoolYear()
         {
             return 1;
         }
+
+        public static int GetActiveSemester()
+        {
+            return 1;
+        }
+
+
     }
 }
