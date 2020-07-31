@@ -17,7 +17,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_settings_fees ORDER BY Type ASC", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.fees ORDER BY Type ASC", conn))
                 {
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
@@ -46,7 +46,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_settings_fees WHERE YearLevelID = @YearLevelID", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.fees WHERE YearLevelID = @YearLevelID", conn))
                 {
                     comm.Parameters.AddWithValue("@YearLevelID", YearLevelID);
                     using (SqlDataReader reader = comm.ExecuteReader())
@@ -76,7 +76,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_settings_fees WHERE FeeID = @FeeID", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.fees WHERE FeeID = @FeeID", conn))
                 {
                     comm.Parameters.AddWithValue("@FeeID", FeeID);
                     using (SqlDataReader reader = comm.ExecuteReader())
@@ -135,7 +135,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_settings_fees WHERE Type = @Type", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.fees WHERE Type = @Type", conn))
                 {
                     if (type == Enums.FeeTypes.TFee)
                         comm.Parameters.AddWithValue("@Type", "TFEE");
@@ -177,7 +177,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("INSERT INTO tbl_settings_fees VALUES (@Fee,@Type,@Amount,@YearLevelID,@SchoolYearID,GETDATE())", conn))
+                using (SqlCommand comm = new SqlCommand("INSERT INTO settings.fees VALUES (@Fee,@Type,@Amount,@YearLevelID,@SchoolYearID,GETDATE())", conn))
                 {
                     comm.Parameters.AddWithValue("@Fee", model.FeeDesc);
                     comm.Parameters.AddWithValue("@Type", model.FeeType);
@@ -199,7 +199,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("UPDATE tbl_settings_fees SET Fee = @Fee, Type = @Type, Amount = @Amount, YearLevelID = @YearLevelID WHERE FeeID = @FeeID", conn))
+                using (SqlCommand comm = new SqlCommand("UPDATE settings.fees SET Fee = @Fee, Type = @Type, Amount = @Amount, YearLevelID = @YearLevelID WHERE FeeID = @FeeID", conn))
                 {
                     comm.Parameters.AddWithValue("@FeeID", model.FeeID);
                     comm.Parameters.AddWithValue("@Fee", model.FeeDesc);

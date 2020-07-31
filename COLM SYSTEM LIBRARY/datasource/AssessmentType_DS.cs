@@ -17,7 +17,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_settings_assessment_types ORDER BY AssessmentTypeID ASC", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.assessment_types ORDER BY AssessmentTypeID ASC", conn))
                 {
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
@@ -45,7 +45,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_settings_assessment_types_items WHERE AssessmentTypeID = @AssessmentTypeID ORDER BY AssessmentTypeID", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.assessment_types_items WHERE AssessmentTypeID = @AssessmentTypeID ORDER BY AssessmentTypeID", conn))
                 {
                     comm.Parameters.AddWithValue("@AssessmentTypeID", AssessmentTypeID);
                     using (SqlDataReader reader = comm.ExecuteReader())

@@ -51,11 +51,11 @@ namespace COLM_SYSTEM.fees
             List<Fee> fees = dgBreakdown.Tag as List<Fee>;
 
             if (comboBox1.Text == "MISCELLANEOUS FEE")
-                FilterBreakDown("MFEE");
+                FilterBreakDown("Miscellaneous");
             else if (comboBox1.Text == "OTHER FEES")
-                FilterBreakDown("OFEE");
+                FilterBreakDown("Other");
             else if (comboBox1.Text == "ADDITIONAL FEE")
-                FilterBreakDown("AFEE");
+                FilterBreakDown("Additional");
             else
                 FilterBreakDown("ALL");
         }

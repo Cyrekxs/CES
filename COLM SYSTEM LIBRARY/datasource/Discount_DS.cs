@@ -16,7 +16,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_settings_discounts ORDER BY DateCreated ASC", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.discounts ORDER BY DateCreated ASC", conn))
                 {
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
@@ -50,7 +50,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM tbl_settings_discounts WHERE DiscountID = @DiscountID ORDER BY DateCreated ASC", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.discounts WHERE DiscountID = @DiscountID ORDER BY DateCreated ASC", conn))
                 {
                     comm.Parameters.AddWithValue("@DiscountID", DiscountID);
                     using (SqlDataReader reader = comm.ExecuteReader())
@@ -83,7 +83,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("INSERT INTO tbl_settings_discounts VALUES (@YearLevelID,@DiscountCode,@Type,@Value,@IsCustomize,@TFee,@MFee,@OFee,@SchoolYearID,GETDATE())", conn))
+                using (SqlCommand comm = new SqlCommand("INSERT INTO settings.discounts VALUES (@YearLevelID,@DiscountCode,@Type,@Value,@IsCustomize,@TFee,@MFee,@OFee,@SchoolYearID,GETDATE())", conn))
                 {
                     comm.Parameters.AddWithValue("@YearLevelID", model.YearLeveLID);
                     comm.Parameters.AddWithValue("@DiscountCode", model.DiscountCode);
@@ -107,7 +107,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("UPDATE tbl_settings_discounts SET Discount = @DiscountCode, Type = @Type, Value = @Value,IsCustomizeComputation = @IsCustomize, TFee = @TFee, MFee = @MFee, OFee = @OFee WHERE DiscountID = @DiscountID", conn))
+                using (SqlCommand comm = new SqlCommand("UPDATE settings.discounts SET Discount = @DiscountCode, Type = @Type, Value = @Value,IsCustomizeComputation = @IsCustomize, TFee = @TFee, MFee = @MFee, OFee = @OFee WHERE DiscountID = @DiscountID", conn))
                 {
                     comm.Parameters.AddWithValue("@DiscountID", model.DiscountID);
                     comm.Parameters.AddWithValue("@DiscountCode", model.DiscountCode);

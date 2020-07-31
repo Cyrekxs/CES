@@ -15,6 +15,7 @@ namespace COLM_SYSTEM.Discounts
             InitializeComponent();
             savingstatus = SavingOptions.INSERT;
         }
+
         public frm_discount_entry(Discount discount)
         {
             InitializeComponent();
