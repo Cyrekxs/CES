@@ -59,11 +59,11 @@
     <Compile Include="Dashboard\UC_DashBoard.Designer.cs">
       <DependentUpon>UC_DashBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Discounts\frm_discount_entry.cs">
+    <Compile Include="Discounts\frm_discount_entry_percentage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Discounts\frm_discount_entry.Designer.cs">
-      <DependentUpon>frm_discount_entry.cs</DependentUpon>
+    <Compile Include="Discounts\frm_discount_entry_percentage.Designer.cs">
+      <DependentUpon>frm_discount_entry_percentage.cs</DependentUpon>
     </Compile>
     <Compile Include="Discounts\uc_discount_list.cs">
       <SubType>UserControl</SubType>
@@ -164,8 +164,8 @@
     <EmbeddedResource Include="Dashboard\UC_DashBoard.resx">
       <DependentUpon>UC_DashBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Discounts\frm_discount_entry.resx">
-      <DependentUpon>frm_discount_entry.cs</DependentUpon>
+    <EmbeddedResource Include="Discounts\frm_discount_entry_percentage.resx">
+      <DependentUpon>frm_discount_entry_percentage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Discounts\uc_discount_list.resx">
       <DependentUpon>uc_discount_list.cs</DependentUpon>
@@ -279,6 +279,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Filter-Standard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wrench.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings-02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Data-Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Data-Information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Garbage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

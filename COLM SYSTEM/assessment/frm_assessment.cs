@@ -95,7 +95,7 @@ namespace COLM_SYSTEM.assessment
             List<Discount> discounts = cmbDiscount.Tag as List<Discount>;
             Discount discount = discounts[cmbDiscount.SelectedIndex];
             AddedDiscounts.Add(discount);
-            dgDiscounts.Rows.Add(discount.DiscountID, discount.DiscountCode, discount.Type, discount.Value);
+            dgDiscounts.Rows.Add(discount.DiscountID, discount.DiscountCode, discount.Type, discount.TotalValue);
         }
 
         private void cmbAssessmentType_SelectedIndexChanged(object sender, System.EventArgs e)
