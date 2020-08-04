@@ -8,7 +8,7 @@ namespace COLM_SYSTEM.fees
     public partial class uc_fee_list : UserControl
     {
         List<FeeSummary> feeSummaries = Fee.GetFeeSummaries();
-
+        private int SelectedFee = 0;
         public uc_fee_list()
         {
             InitializeComponent();
@@ -95,18 +95,26 @@ namespace COLM_SYSTEM.fees
             frm_settings_fee_entry frm = new frm_settings_fee_entry();
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.ShowDialog();
+            DisplayFeeSummary();
         }
 
         private void dgBreakdown_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int FeeID = Convert.ToInt16(dgBreakdown.Rows[e.RowIndex].Cells[0].Value);
-            Fee fee = Fee.GetFee(FeeID);
-            if (e.ColumnIndex == clmEditFee.Index)
+            if (e.ColumnIndex == clmEdit.Index)
             {
-                frm_settings_fee_entry frm = new frm_settings_fee_entry(fee);
-                frm.StartPosition = FormStartPosition.CenterScreen;
-                frm.ShowDialog();
+                SelectedFee = e.RowIndex;
+                cm_actions.Show(this, new System.Drawing.Point( MousePosition.X - 280,MousePosition.Y - 100));
             }
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            int FeeID = Convert.ToInt16(dgBreakdown.Rows[SelectedFee].Cells[0].Value);
+            Fee fee = Fee.GetFee(FeeID);
+            frm_settings_fee_entry frm = new frm_settings_fee_entry(fee);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog();
+            DisplayFeeSummary();
         }
     }
 }

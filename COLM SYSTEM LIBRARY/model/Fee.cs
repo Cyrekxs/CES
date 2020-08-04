@@ -16,10 +16,12 @@ namespace COLM_SYSTEM_LIBRARY.model
         public int YearLeveLID { get; set; }
         public double Amount { get; set; }
         public int SchoolYearID { get; set; }
+        public int SemesterID { get; set; }
 
-        public static bool InsertFee(Fee model)
+
+        public static bool InsertUpdateFee(Fee model)
         {
-            return (Fee_DS.InsertFee(model));
+            return (Fee_DS.InsertUpdateFee(model));
         }
 
         public static List<Fee> GetFees()
@@ -39,11 +41,6 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static List<FeeSummary> GetFeeSummaries()
         {
             return Fee_DS.GetFeeSummaries();
-        }
-
-        public static bool UpdateFee(Fee model)
-        {
-            return (Fee_DS.UpdateFee(model));
         }
 
         public static List<Fee> GetFeesByType(Enums.FeeTypes type)

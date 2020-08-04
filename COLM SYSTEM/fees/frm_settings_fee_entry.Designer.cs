@@ -111,7 +111,6 @@
             this.cmbFeeType.FormattingEnabled = true;
             this.er.SetIconPadding(this.cmbFeeType, -20);
             this.cmbFeeType.Items.AddRange(new object[] {
-            "Tuition",
             "Miscellaneous",
             "Other",
             "Additional"});
@@ -168,6 +167,7 @@
             this.txtFeeAmount.Name = "txtFeeAmount";
             this.txtFeeAmount.Size = new System.Drawing.Size(297, 24);
             this.txtFeeAmount.TabIndex = 9;
+            this.txtFeeAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // button1
             // 
@@ -195,6 +195,7 @@
             this.button2.TabIndex = 11;
             this.button2.Text = "CANCEL";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // er
             // 

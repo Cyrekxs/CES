@@ -170,36 +170,13 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         }
 
 
-
-        public static bool InsertFee(Fee model)
+        public static bool InsertUpdateFee(Fee model)
         {
             int result = 0;
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("INSERT INTO settings.fees VALUES (@Fee,@Type,@Amount,@YearLevelID,@SchoolYearID,GETDATE())", conn))
-                {
-                    comm.Parameters.AddWithValue("@Fee", model.FeeDesc);
-                    comm.Parameters.AddWithValue("@Type", model.FeeType);
-                    comm.Parameters.AddWithValue("@amount", model.Amount);
-                    comm.Parameters.AddWithValue("@YearLevelID", model.YearLeveLID);
-                    comm.Parameters.AddWithValue("@SchoolYearID", model.SchoolYearID);
-                    result = comm.ExecuteNonQuery();
-                    if (result > 0)
-                        return true;
-                    else
-                        return false;
-                }
-            }
-        }
-
-        public static bool UpdateFee(Fee model)
-        {
-            int result = 0;
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
-            {
-                conn.Open();
-                using (SqlCommand comm = new SqlCommand("UPDATE settings.fees SET Fee = @Fee, Type = @Type, Amount = @Amount, YearLevelID = @YearLevelID WHERE FeeID = @FeeID", conn))
+                using (SqlCommand comm = new SqlCommand("EXECUTE sp_set_fee @FeeID,@Fee,@Type,@Amount,@YearLevelID,@SchoolYearID,@SemesterID", conn))
                 {
                     comm.Parameters.AddWithValue("@FeeID", model.FeeID);
                     comm.Parameters.AddWithValue("@Fee", model.FeeDesc);
@@ -207,6 +184,8 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                     comm.Parameters.AddWithValue("@amount", model.Amount);
                     comm.Parameters.AddWithValue("@YearLevelID", model.YearLeveLID);
                     comm.Parameters.AddWithValue("@SchoolYearID", model.SchoolYearID);
+                    comm.Parameters.AddWithValue("@SemesterID", model.SemesterID);
+
                     result = comm.ExecuteNonQuery();
                     if (result > 0)
                         return true;

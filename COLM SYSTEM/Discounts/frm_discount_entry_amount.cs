@@ -1,19 +1,24 @@
 ﻿using COLM_SYSTEM_LIBRARY.model;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM.Discounts
 {
-    public partial class frm_discount_entry_percentage : Form
+    public partial class frm_discount_entry_amount : Form
     {
         private Discount _Discount = new Discount();
-        public frm_discount_entry_percentage()
+        public frm_discount_entry_amount()
         {
             InitializeComponent();
         }
-
-        public frm_discount_entry_percentage(Discount discount)
+        public frm_discount_entry_amount(Discount discount)
         {
             InitializeComponent();
 
@@ -23,11 +28,24 @@ namespace COLM_SYSTEM.Discounts
             txtDiscountCode.Text = discount.DiscountCode;
             cmbEducationLevel.Text = yearLevel.EducationLevel;
             cmbYearLevel.Text = yearLevel.YearLvl;
+            txtAmountValue.Text = discount.TotalValue.ToString("n");
 
-            txtTFee.Text = discount.TFee.ToString();
-            txtMFee.Text = discount.MFee.ToString();
-            txtOFee.Text = discount.OFee.ToString();
+            if (Convert.ToBoolean(discount.TFee))
+                ch_TFee.Checked = true;
+            else
+                ch_TFee.Checked = false;
+
+            if (Convert.ToBoolean(discount.MFee))
+                ch_MFee.Checked = true;
+            else
+                ch_MFee.Checked = false;
+
+            if (Convert.ToBoolean(discount.OFee))
+                ch_OFee.Checked = true;
+            else
+                ch_OFee.Checked = false;
         }
+
 
         private void LoadYearLevels()
         {
@@ -70,9 +88,10 @@ namespace COLM_SYSTEM.Discounts
                     break;
                 }
             }
-
             return result;
         }
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -89,18 +108,17 @@ namespace COLM_SYSTEM.Discounts
                 DiscountID = _Discount.DiscountID,
                 DiscountCode = txtDiscountCode.Text,
                 YearLeveLID = YearLevel.GetYearLevel(cmbEducationLevel.Text, cmbYearLevel.Text).YearLevelID,
-                Type = "PERCENTAGE",
-                TotalValue = Convert.ToDouble(txtTFee.Text) + Convert.ToDouble(txtMFee.Text) + Convert.ToDouble(txtOFee.Text),
-                TFee = Convert.ToDouble(txtTFee.Text),
-                MFee = Convert.ToDouble(txtMFee.Text),
-                OFee = Convert.ToDouble(txtOFee.Text),
+                Type = "AMOUNT",
+                TotalValue = Convert.ToDouble(txtAmountValue.Text),
+                TFee = Convert.ToInt16(ch_TFee.Checked),
+                MFee = Convert.ToInt16(ch_MFee.Checked),
+                OFee = Convert.ToInt16(ch_OFee.Checked),
                 SchoolYearID = Utilties.GetActiveSchoolYear()
             };
 
+
             bool result = false;
             result = Discount.InsertUpdateDiscount(discount);
-
-
 
             if (result == true)
             {
@@ -117,11 +135,6 @@ namespace COLM_SYSTEM.Discounts
         private void cmbEducationLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadYearLevels();
-        }
-
-        private void frm_discount_entry_percentage_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

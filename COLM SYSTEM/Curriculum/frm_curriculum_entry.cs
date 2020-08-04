@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace COLM_SYSTEM.fees
+namespace COLM_SYSTEM.Curriculum
 {
-    public partial class frm_settings_fee_list : Form
+    public partial class frm_curriculum_entry : Form
     {
-        public frm_settings_fee_list()
+        public frm_curriculum_entry()
         {
             InitializeComponent();
         }

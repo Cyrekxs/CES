@@ -11,14 +11,14 @@ namespace COLM_SYSTEM.Discounts
         int SelectedRow = 0;
         public uc_discount_list()
         {
-            InitializeComponent();
-            _Discounts = Discount.GetDiscounts();
+            InitializeComponent();           
             DisplayDiscounts();
         }
 
 
         private void DisplayDiscounts()
         {
+            _Discounts = Discount.GetDiscounts();
             dataGridView3.Rows.Clear();
             foreach (var item in _Discounts)
             {
@@ -31,10 +31,9 @@ namespace COLM_SYSTEM.Discounts
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //int DiscountID = Convert.ToInt32(dataGridView3.Rows[e.RowIndex].Cells[0].Value);
             if (e.ColumnIndex == clmEdit.Index)
             {
-                cm_actions.Show(dataGridView3,new System.Drawing.Point(MousePosition.X - 270,MousePosition.Y - 120));
+                cm_actions.Show(this, new System.Drawing.Point(MousePosition.X - 280, MousePosition.Y - 100));
             }
         }
 
@@ -54,14 +53,34 @@ namespace COLM_SYSTEM.Discounts
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             int DiscountID = Convert.ToInt32(dataGridView3.Rows[SelectedRow].Cells[0].Value);
-            frm_discount_entry_percentage frm = new frm_discount_entry_percentage(Discount.GetDiscount(DiscountID));
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
+            Discount discount = Discount.GetDiscount(DiscountID);
+
+            if (discount.Type == "PERCENTAGE")
+            {
+                frm_discount_entry_percentage frm = new frm_discount_entry_percentage(discount);
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+            }
+            else if (discount.Type == "AMOUNT")
+            {
+                frm_discount_entry_amount frm = new frm_discount_entry_amount(discount);
+                frm.StartPosition = FormStartPosition.CenterScreen;
+                frm.ShowDialog();
+            }
+
         }
 
         private void dataGridView3_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             SelectedRow = e.RowIndex;
+        }
+
+        private void aMOUNTDISCOUNTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_discount_entry_amount frm = new frm_discount_entry_amount();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+            DisplayDiscounts();
         }
     }
 }

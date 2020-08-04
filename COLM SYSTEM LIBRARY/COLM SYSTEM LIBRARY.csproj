@@ -55,6 +55,7 @@
     <Compile Include="model\Address.cs" />
     <Compile Include="model\AssessmentType.cs" />
     <Compile Include="model\AssessmentTypeItem.cs" />
+    <Compile Include="model\Curriculum.cs" />
     <Compile Include="model\Discount.cs" />
     <Compile Include="model\Fee.cs" />
     <Compile Include="model\FeeSummary.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="model\StudentGuardian.cs" />
     <Compile Include="model\StudentInfo.cs" />
     <Compile Include="model\StudentRegistrationInfo.cs" />
+    <Compile Include="model\Subject.cs" />
     <Compile Include="model\YearLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

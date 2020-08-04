@@ -2,25 +2,21 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using static COLM_SYSTEM_LIBRARY.helper.Enums;
 
 namespace COLM_SYSTEM
 {
     public partial class frm_settings_fee_entry : Form
     {
-        private SavingOptions savingstatus = new SavingOptions();
         private Fee _Fee = new Fee();
         private List<string> EducationLevels = YearLevel.GetEducationLevels();
         public frm_settings_fee_entry()
         {
             InitializeComponent();
-            savingstatus = SavingOptions.INSERT;
         }
-        
+
         public frm_settings_fee_entry(Fee fee)
         {
             InitializeComponent();
-            savingstatus = SavingOptions.UPDATE;
 
             _Fee = fee;
             YearLevel yearLevel = YearLevel.GetYearLevel(fee.YearLeveLID);
@@ -96,21 +92,16 @@ namespace COLM_SYSTEM
             }
 
             Fee fee = new Fee();
+            fee.FeeID = _Fee.FeeID;
             fee.FeeDesc = txtFee.Text;
             fee.FeeType = cmbFeeType.Text;
             fee.YearLeveLID = YearLevel.GetYearLevel(cmbEducationLevel.Text, cmbYearLevel.Text).YearLevelID;
             fee.Amount = Convert.ToDouble(txtFeeAmount.Text);
             fee.SchoolYearID = Utilties.GetActiveSchoolYear();
+            fee.SemesterID = Utilties.GetActiveSemester();
 
             bool result = false;
-
-            if (savingstatus == SavingOptions.INSERT)
-                result = Fee.InsertFee(fee);
-            else
-            {
-                fee.FeeID = _Fee.FeeID;
-                result = Fee.UpdateFee(fee);
-            }
+            result = Fee.InsertUpdateFee(fee);
 
             if (result == true)
                 MessageBox.Show("Fee has been successfully saved!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -126,6 +117,12 @@ namespace COLM_SYSTEM
             {
                 cmbYearLevel.Items.Add(item.YearLvl);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Close();
+            Dispose();
         }
     }
 }
