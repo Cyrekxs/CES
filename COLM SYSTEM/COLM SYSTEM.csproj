@@ -113,6 +113,12 @@
     <Compile Include="subject\frm_subject_entry.Designer.cs">
       <DependentUpon>frm_subject_entry.cs</DependentUpon>
     </Compile>
+    <Compile Include="subject\uc_subject_list.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="subject\uc_subject_list.Designer.cs">
+      <DependentUpon>uc_subject_list.cs</DependentUpon>
+    </Compile>
     <Compile Include="uc_assessment_lists.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -224,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="subject\frm_subject_entry.resx">
       <DependentUpon>frm_subject_entry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subject\uc_subject_list.resx">
+      <DependentUpon>uc_subject_list.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="uc_assessment_lists.resx">
       <DependentUpon>uc_assessment_lists.cs</DependentUpon>

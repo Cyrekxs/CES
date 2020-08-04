@@ -47,6 +47,7 @@
     <Compile Include="datasource\Fee_DS.cs" />
     <Compile Include="datasource\StudentInfo_DS.cs" />
     <Compile Include="datasource\StudentRegistration_DS.cs" />
+    <Compile Include="datasource\Subject_DS.cs" />
     <Compile Include="datasource\YearLevel_DS.cs" />
     <Compile Include="helper\Connection.cs" />
     <Compile Include="helper\Enums.cs" />

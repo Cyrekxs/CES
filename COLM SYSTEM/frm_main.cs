@@ -1,5 +1,6 @@
 ﻿using COLM_SYSTEM.Discounts;
 using COLM_SYSTEM.fees;
+using COLM_SYSTEM.subject;
 using System;
 using System.Windows.Forms;
 
@@ -45,6 +46,11 @@ namespace COLM_SYSTEM
             //uc_fee_list uc = new uc_fee_list();
             //uc.Dock = DockStyle.Fill;
             //PanelMain.Controls.Add(uc);
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            DisplayControl(new uc_subject_list());
         }
     }
 }
