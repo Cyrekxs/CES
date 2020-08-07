@@ -45,6 +45,7 @@
     <Compile Include="datasource\AssessmentType_DS.cs" />
     <Compile Include="datasource\Discount_DS.cs" />
     <Compile Include="datasource\Fee_DS.cs" />
+    <Compile Include="datasource\SchoolYearSemester_DS.cs" />
     <Compile Include="datasource\StudentInfo_DS.cs" />
     <Compile Include="datasource\StudentRegistration_DS.cs" />
     <Compile Include="datasource\Subject_DS.cs" />
@@ -60,7 +61,9 @@
     <Compile Include="model\Discount.cs" />
     <Compile Include="model\Fee.cs" />
     <Compile Include="model\FeeSummary.cs" />
+    <Compile Include="model\SchoolYear.cs" />
     <Compile Include="model\Section.cs" />
+    <Compile Include="model\SchoolSemester.cs" />
     <Compile Include="model\StudentRegistered.cs" />
     <Compile Include="model\StudentGuardian.cs" />
     <Compile Include="model\StudentInfo.cs" />

@@ -59,6 +59,12 @@
     <Compile Include="Curriculum\frm_curriculum_entry.Designer.cs">
       <DependentUpon>frm_curriculum_entry.cs</DependentUpon>
     </Compile>
+    <Compile Include="Curriculum\frm_curriculum_subject_setter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Curriculum\frm_curriculum_subject_setter.Designer.cs">
+      <DependentUpon>frm_curriculum_subject_setter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard\UC_DashBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -172,6 +178,12 @@
     </Compile>
     <EmbeddedResource Include="assessment\frm_assessment.resx">
       <DependentUpon>frm_assessment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Curriculum\frm_curriculum_entry.resx">
+      <DependentUpon>frm_curriculum_entry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Curriculum\frm_curriculum_subject_setter.resx">
+      <DependentUpon>frm_curriculum_subject_setter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard\UC_DashBoard.resx">
       <DependentUpon>UC_DashBoard.cs</DependentUpon>
