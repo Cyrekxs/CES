@@ -17,7 +17,6 @@ namespace COLM_SYSTEM.fees
 
         private void DisplayFeeSummary()
         {
-            dgSummary.Rows.Clear();
             foreach (var item in feeSummaries)
             {
                 dgSummary.Rows.Add(item.EducationLevel,
@@ -116,19 +115,6 @@ namespace COLM_SYSTEM.fees
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.ShowDialog();
             DisplayFeeSummary();
-        }
-
-
-        private void dgBreakdown_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            int FeeID = Convert.ToInt16(dgBreakdown.Rows[e.RowIndex].Cells[0].Value);
-            Fee fee = Fee.GetFee(FeeID);
-            if (e.ColumnIndex == clmEdit.Index)
-            {
-                frm_settings_fee_entry frm = new frm_settings_fee_entry(fee);
-                frm.StartPosition = FormStartPosition.CenterScreen;
-                frm.ShowDialog();
-            }
         }
     }
 }

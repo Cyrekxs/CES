@@ -1,4 +1,5 @@
 ﻿using COLM_SYSTEM;
+using COLM_SYSTEM.Curriculum;
 using COLM_SYSTEM.subject;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace COLM_SYSTEM
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_main());
+            Application.Run(new frm_curriculum_entry());
         }
     }
 }
