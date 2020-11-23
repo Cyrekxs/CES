@@ -47,52 +47,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assessment Folder\frm_assessment.cs">
+    <Compile Include="assessment\frm_assessment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Assessment Folder\frm_assessment.Designer.cs">
+    <Compile Include="assessment\frm_assessment.Designer.cs">
       <DependentUpon>frm_assessment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Curriculum Folder\frm_curriculum_entry.cs">
+    <Compile Include="Curriculum\frm_curriculum_entry.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Curriculum Folder\frm_curriculum_entry.Designer.cs">
+    <Compile Include="Curriculum\frm_curriculum_entry.Designer.cs">
       <DependentUpon>frm_curriculum_entry.cs</DependentUpon>
     </Compile>
-    <Compile Include="Curriculum Folder\frm_curriculum_subject_setter.cs">
+    <Compile Include="Curriculum\frm_curriculum_subject_setter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Curriculum Folder\frm_curriculum_subject_setter.Designer.cs">
+    <Compile Include="Curriculum\frm_curriculum_subject_setter.Designer.cs">
       <DependentUpon>frm_curriculum_subject_setter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard Folder\UC_DashBoard.cs">
+    <Compile Include="Dashboard\UC_DashBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Dashboard Folder\UC_DashBoard.Designer.cs">
+    <Compile Include="Dashboard\UC_DashBoard.Designer.cs">
       <DependentUpon>UC_DashBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Discounts Folder\frm_discount_entry_amount.cs">
+    <Compile Include="Discounts\frm_discount_entry_amount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Discounts Folder\frm_discount_entry_amount.Designer.cs">
+    <Compile Include="Discounts\frm_discount_entry_amount.Designer.cs">
       <DependentUpon>frm_discount_entry_amount.cs</DependentUpon>
     </Compile>
-    <Compile Include="Discounts Folder\frm_discount_entry_percentage.cs">
+    <Compile Include="Discounts\frm_discount_entry_percentage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Discounts Folder\frm_discount_entry_percentage.Designer.cs">
+    <Compile Include="Discounts\frm_discount_entry_percentage.Designer.cs">
       <DependentUpon>frm_discount_entry_percentage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Discounts Folder\uc_discount_list.cs">
+    <Compile Include="Discounts\uc_discount_list.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Discounts Folder\uc_discount_list.Designer.cs">
+    <Compile Include="Discounts\uc_discount_list.Designer.cs">
       <DependentUpon>uc_discount_list.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fees Folder\uc_fee_list.cs">
+    <Compile Include="fees\uc_fee_list.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Fees Folder\uc_fee_list.Designer.cs">
+    <Compile Include="fees\uc_fee_list.Designer.cs">
       <DependentUpon>uc_fee_list.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_main.cs">
@@ -101,28 +101,28 @@
     <Compile Include="frm_main.Designer.cs">
       <DependentUpon>frm_main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fees Folder\frm_settings_fee_entry.cs">
+    <Compile Include="fees\frm_settings_fee_entry.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Fees Folder\frm_settings_fee_entry.Designer.cs">
+    <Compile Include="fees\frm_settings_fee_entry.Designer.cs">
       <DependentUpon>frm_settings_fee_entry.cs</DependentUpon>
     </Compile>
-    <Compile Include="Student Information Folder\uc_student_information_list.cs">
+    <Compile Include="student information\uc_student_information_list.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Student Information Folder\uc_student_information_list.Designer.cs">
+    <Compile Include="student information\uc_student_information_list.Designer.cs">
       <DependentUpon>uc_student_information_list.cs</DependentUpon>
     </Compile>
-    <Compile Include="Subject Folder\frm_subject_entry.cs">
+    <Compile Include="subject\frm_subject_entry.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Subject Folder\frm_subject_entry.Designer.cs">
+    <Compile Include="subject\frm_subject_entry.Designer.cs">
       <DependentUpon>frm_subject_entry.cs</DependentUpon>
     </Compile>
-    <Compile Include="Subject Folder\uc_subject_list.cs">
+    <Compile Include="subject\uc_subject_list.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Subject Folder\uc_subject_list.Designer.cs">
+    <Compile Include="subject\uc_subject_list.Designer.cs">
       <DependentUpon>uc_subject_list.cs</DependentUpon>
     </Compile>
     <Compile Include="uc_assessment_lists.cs">
@@ -134,76 +134,76 @@
     <Compile Include="Utilties.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registration Folder\frm_registered_student_list.cs">
+    <Compile Include="registration\frm_registered_student_list.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registration Folder\frm_registered_student_list.Designer.cs">
+    <Compile Include="registration\frm_registered_student_list.Designer.cs">
       <DependentUpon>frm_registered_student_list.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registration Folder\frm_registration_edit.cs">
+    <Compile Include="registration\frm_registration_edit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registration Folder\frm_registration_edit.Designer.cs">
+    <Compile Include="registration\frm_registration_edit.Designer.cs">
       <DependentUpon>frm_registration_edit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registration Folder\frm_registration_entry.cs">
+    <Compile Include="registration\frm_registration_entry.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registration Folder\frm_registration_entry.Designer.cs">
+    <Compile Include="registration\frm_registration_entry.Designer.cs">
       <DependentUpon>frm_registration_entry.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registration Folder\frm_student_browse.cs">
+    <Compile Include="registration\frm_student_browse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registration Folder\frm_student_browse.Designer.cs">
+    <Compile Include="registration\frm_student_browse.Designer.cs">
       <DependentUpon>frm_student_browse.cs</DependentUpon>
     </Compile>
-    <Compile Include="Student Information Folder\frm_student_information_entry.cs">
+    <Compile Include="student information\frm_student_information_entry.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Student Information Folder\frm_student_information_entry.Designer.cs">
+    <Compile Include="student information\frm_student_information_entry.Designer.cs">
       <DependentUpon>frm_student_information_entry.cs</DependentUpon>
     </Compile>
-    <Compile Include="Student Information Folder\frm_student_information_entry_guardian.cs">
+    <Compile Include="student information\frm_student_information_entry_guardian.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Student Information Folder\frm_student_information_entry_guardian.Designer.cs">
+    <Compile Include="student information\frm_student_information_entry_guardian.Designer.cs">
       <DependentUpon>frm_student_information_entry_guardian.cs</DependentUpon>
     </Compile>
-    <Compile Include="Student Information Folder\frm_student_information_list.cs">
+    <Compile Include="student information\frm_student_information_list.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Student Information Folder\frm_student_information_list.Designer.cs">
+    <Compile Include="student information\frm_student_information_list.Designer.cs">
       <DependentUpon>frm_student_information_list.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Assessment Folder\frm_assessment.resx">
+    <EmbeddedResource Include="assessment\frm_assessment.resx">
       <DependentUpon>frm_assessment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Curriculum Folder\frm_curriculum_entry.resx">
+    <EmbeddedResource Include="Curriculum\frm_curriculum_entry.resx">
       <DependentUpon>frm_curriculum_entry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Curriculum Folder\frm_curriculum_subject_setter.resx">
+    <EmbeddedResource Include="Curriculum\frm_curriculum_subject_setter.resx">
       <DependentUpon>frm_curriculum_subject_setter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard Folder\UC_DashBoard.resx">
+    <EmbeddedResource Include="Dashboard\UC_DashBoard.resx">
       <DependentUpon>UC_DashBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Discounts Folder\frm_discount_entry_amount.resx">
+    <EmbeddedResource Include="Discounts\frm_discount_entry_amount.resx">
       <DependentUpon>frm_discount_entry_amount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Discounts Folder\frm_discount_entry_percentage.resx">
+    <EmbeddedResource Include="Discounts\frm_discount_entry_percentage.resx">
       <DependentUpon>frm_discount_entry_percentage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Discounts Folder\uc_discount_list.resx">
+    <EmbeddedResource Include="Discounts\uc_discount_list.resx">
       <DependentUpon>uc_discount_list.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fees Folder\uc_fee_list.resx">
+    <EmbeddedResource Include="fees\uc_fee_list.resx">
       <DependentUpon>uc_fee_list.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_main.resx">
       <DependentUpon>frm_main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fees Folder\frm_settings_fee_entry.resx">
+    <EmbeddedResource Include="fees\frm_settings_fee_entry.resx">
       <DependentUpon>frm_settings_fee_entry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -216,34 +216,34 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Registration Folder\frm_registered_student_list.resx">
+    <EmbeddedResource Include="registration\frm_registered_student_list.resx">
       <DependentUpon>frm_registered_student_list.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registration Folder\frm_registration_edit.resx">
+    <EmbeddedResource Include="registration\frm_registration_edit.resx">
       <DependentUpon>frm_registration_edit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registration Folder\frm_registration_entry.resx">
+    <EmbeddedResource Include="registration\frm_registration_entry.resx">
       <DependentUpon>frm_registration_entry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registration Folder\frm_student_browse.resx">
+    <EmbeddedResource Include="registration\frm_student_browse.resx">
       <DependentUpon>frm_student_browse.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Student Information Folder\frm_student_information_entry.resx">
+    <EmbeddedResource Include="student information\frm_student_information_entry.resx">
       <DependentUpon>frm_student_information_entry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Student Information Folder\frm_student_information_entry_guardian.resx">
+    <EmbeddedResource Include="student information\frm_student_information_entry_guardian.resx">
       <DependentUpon>frm_student_information_entry_guardian.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Student Information Folder\frm_student_information_list.resx">
+    <EmbeddedResource Include="student information\frm_student_information_list.resx">
       <DependentUpon>frm_student_information_list.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Student Information Folder\uc_student_information_list.resx">
+    <EmbeddedResource Include="student information\uc_student_information_list.resx">
       <DependentUpon>uc_student_information_list.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Subject Folder\frm_subject_entry.resx">
+    <EmbeddedResource Include="subject\frm_subject_entry.resx">
       <DependentUpon>frm_subject_entry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Subject Folder\uc_subject_list.resx">
+    <EmbeddedResource Include="subject\uc_subject_list.resx">
       <DependentUpon>uc_subject_list.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="uc_assessment_lists.resx">
