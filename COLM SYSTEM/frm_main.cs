@@ -32,25 +32,20 @@ namespace COLM_SYSTEM
 
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            DisplayControl(new uc_discount_list());
-            //uc_discount_list uc = new uc_discount_list();
-            //uc.Dock = DockStyle.Fill;
-            //PanelMain.Controls.Add(uc);
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            DisplayControl(new uc_fee_list());
-            //uc_fee_list uc = new uc_fee_list();
-            //uc.Dock = DockStyle.Fill;
-            //PanelMain.Controls.Add(uc);
-        }
-
-        private void button10_Click(object sender, EventArgs e)
+        private void sUBJECTSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DisplayControl(new uc_subject_list());
         }
+
+        private void dISCOUNTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DisplayControl(new uc_discount_list());
+        }
+
+        private void fEESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DisplayControl(new uc_fee_list());
+        }
+
     }
 }

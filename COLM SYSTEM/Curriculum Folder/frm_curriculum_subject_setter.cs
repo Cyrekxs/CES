@@ -6,7 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace COLM_SYSTEM.Curriculum
+namespace COLM_SYSTEM.Curriculum_Folder
 {
     public partial class frm_curriculum_subject_setter : Form
     {
@@ -81,7 +81,7 @@ namespace COLM_SYSTEM.Curriculum
                 Subject subject = Subject.GetSubject(Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[clmSubjectID.Index].Value));
 
                 if (IsSubjectExists(subject.SubjID) == false)
-                    _dg.Rows.Add(0, subject.SubjID, subject.SubjCode, subject.SubjDesc, subject.LecUnit, subject.LabUnit, subject.LecUnit + subject.LabUnit);
+                    _dg.Rows.Add(subject.SubjID, subject.SubjCode, subject.SubjDesc, subject.LecUnit, subject.LabUnit, subject.LecUnit + subject.LabUnit);
             }
         }
     }

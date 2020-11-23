@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace COLM_SYSTEM.Curriculum
+namespace COLM_SYSTEM.Curriculum_Folder
 {
     public partial class frm_curriculum_entry : Form
     {
@@ -39,7 +39,7 @@ namespace COLM_SYSTEM.Curriculum
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             clmYearLevel.Items.Clear();
-            List<string> yearLevels = (from r in YearLevel.GetYearLevelsByEducationLevel(comboBox1.Text) select r.YearLvl).ToList();
+            List<string> yearLevels = (from r in YearLevel.GetYearLevelsByEducationLevel(cmbEducationLevel.Text) select r.YearLvl).ToList();
             foreach (var item in yearLevels)
             {
                 clmYearLevel.Items.Add(item);
@@ -52,6 +52,16 @@ namespace COLM_SYSTEM.Curriculum
             frm_curriculum_subject_setter frm = new frm_curriculum_subject_setter(dataGridView1);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Curriculum curriculum = new Curriculum();
+            curriculum.Code = txtCurriculumCode.Text;
+            curriculum.Description = txtDescription.Text;
+            curriculum.EducationLevel = cmbEducationLevel.Text;
+
+            MessageBox.Show(Curriculum.IsCurriculumExists(curriculum.Code).ToString());
         }
     }
 }

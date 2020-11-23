@@ -1,4 +1,4 @@
-﻿namespace COLM_SYSTEM.Curriculum
+﻿namespace COLM_SYSTEM.Curriculum_Folder
 {
     partial class frm_curriculum_subject_setter
     {

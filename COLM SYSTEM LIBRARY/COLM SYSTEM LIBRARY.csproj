@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="datasource\Address_DS.cs" />
     <Compile Include="datasource\AssessmentType_DS.cs" />
+    <Compile Include="datasource\Curriculum_DS.cs" />
     <Compile Include="datasource\Discount_DS.cs" />
     <Compile Include="datasource\Fee_DS.cs" />
     <Compile Include="datasource\SchoolYearSemester_DS.cs" />
@@ -53,11 +54,13 @@
     <Compile Include="helper\Connection.cs" />
     <Compile Include="helper\Enums.cs" />
     <Compile Include="helper\Globals.cs" />
+    <Compile Include="helper\SQLHelper.cs" />
     <Compile Include="helper\Utilities.cs" />
     <Compile Include="model\Address.cs" />
     <Compile Include="model\AssessmentType.cs" />
     <Compile Include="model\AssessmentTypeItem.cs" />
     <Compile Include="model\Curriculum.cs" />
+    <Compile Include="model\CurriculumSubject.cs" />
     <Compile Include="model\Discount.cs" />
     <Compile Include="model\Fee.cs" />
     <Compile Include="model\FeeSummary.cs" />
